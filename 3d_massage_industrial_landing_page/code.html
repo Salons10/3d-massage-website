@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3D Massage | Strength in Healing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4A847", // Warm Amber (Gold Leaf)
+                        "background-dark": "#121417", // Darker Slate
+                        "slate-custom": "#1A1D21", // Deep Slate
+                        "steel": "#4A4E54", // Gunmetal Steel
+                        "chrome": "#C0C5CE", // Chrome Silver
+                        "accent-teal": "#5D8CA8", // Metallic Blue-Teal
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "heading": ["Bebas Neue", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --stone-texture: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            --metallic-vein: linear-gradient(135deg, rgba(192, 197, 206, 0.1) 0%, rgba(93, 140, 168, 0.05) 50%, rgba(192, 197, 206, 0.1) 100%);
+        }
+        .stone-bg {
+            background-color: #121417;
+            background-image: var(--stone-texture), var(--metallic-vein);
+        }
+        .chiseled-card {
+            background: linear-gradient(145deg, #1e2126, #14161a);
+            border: 2px solid #2a2e35;
+            box-shadow: 
+                inset 1px 1px 0px rgba(255,255,255,0.05),
+                inset -1px -1px 0px rgba(0,0,0,0.5),
+                0 10px 30px -10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .chiseled-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #C0C5CE 0%, transparent 40%, transparent 60%, #5D8CA8 100%);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+            padding: 1px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .etched-text {
+            color: #FFFFFF;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(255,255,255,0.1);
+            letter-spacing: 0.05em;
+        }
+        .chrome-text {
+            background: linear-gradient(180deg, #FFFFFF 0%, #C0C5CE 45%, #8E949E 55%, #C0C5CE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+        }
+        .gold-leaf-button {
+            background: linear-gradient(135deg, #D4A847 0%, #B88A2D 50%, #D4A847 100%);
+            box-shadow: 0 4px 15px rgba(212, 168, 71, 0.3), inset 0 1px 1px rgba(255,255,255,0.4);
+            border: 1px solid #967020;
+            transition: all 0.3s ease;
+        }
+        .gold-leaf-button:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 6px 20px rgba(212, 168, 71, 0.5), inset 0 1px 1px rgba(255,255,255,0.5);
+            transform: translateY(-1px);
+        }
+        .logo-3d {
+            position: relative;
+            font-family: 'Bebas Neue', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        .logo-spine {
+            width: 8px;
+            height: 32px;
+            background: linear-gradient(to bottom, #888, #444, #888);
+            margin: 0 2px;
+            position: relative;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 5%, 80% 10%, 100% 15%, 80% 20%, 100% 25%, 80% 30%, 100% 35%, 80% 40%, 100% 45%, 80% 50%, 100% 55%, 80% 60%, 100% 65%, 80% 70%, 100% 75%, 80% 80%, 100% 85%, 80% 90%, 100% 95%, 0% 100%);
+        }
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #C0C5CE, #5D8CA8, transparent);
+            box-shadow: 0 0 10px rgba(93, 140, 168, 0.3);
+        }
+        .liquid-metal-vein {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(192, 197, 206, 0.8), transparent);
+            width: 100%;
+            top: 50%;
+            filter: blur(1px);
+        }
+    </style>
+</head>
+<body class="stone-bg font-display text-slate-100 selection:bg-primary/30">
+<nav class="fixed top-0 w-full z-50 bg-background-dark/90 border-b border-white/5 backdrop-blur-xl">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-1 group cursor-pointer">
+<div class="flex items-center">
+<span class="text-4xl font-black chrome-text leading-none italic">3</span>
+<div class="logo-spine mx-1"></div>
+<span class="text-4xl font-black chrome-text leading-none italic">D</span>
+</div>
+<h1 class="font-heading text-2xl tracking-[0.2em] chrome-text ml-4 hidden sm:block">MASSAGE</h1>
+</div>
+<div class="hidden lg:flex items-center gap-10">
+<a class="text-chrome/70 hover:text-white transition-colors text-xs font-bold tracking-[0.2em] uppercase" href="#">Services</a>
+<a class="text-chrome/70 hover:text-white transition-colors text-xs font-bold tracking-[0.2em] uppercase" href="#">The 3D Method</a>
+<a class="text-chrome/70 hover:text-white transition-colors text-xs font-bold tracking-[0.2em] uppercase" href="#">Meet Max</a>
+<a class="text-chrome/70 hover:text-white transition-colors text-xs font-bold tracking-[0.2em] uppercase" href="#">Testimonials</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="gold-leaf-button text-background-dark font-black py-2.5 px-8 rounded-sm uppercase text-xs tracking-widest">
+                Book Now
+            </button>
+</div>
+</div>
+</nav>
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden stone-bg">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/80 to-background-dark z-10"></div>
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&amp;fit=crop&amp;q=80')] bg-cover bg-center opacity-30 mix-blend-luminosity"></div>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-3 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+<span class="material-symbols-outlined text-accent-teal text-lg">diamond</span>
+<span class="text-chrome text-[10px] font-black tracking-[0.3em] uppercase">The Gold Standard of Recovery</span>
+</div>
+<h1 class="font-heading text-7xl md:text-[10rem] leading-[0.85] mb-8 etched-text">
+                STRENGTH <br/><span class="chrome-text">IN HEALING</span>
+</h1>
+<p class="text-chrome text-lg md:text-2xl max-w-2xl mb-12 leading-relaxed font-light italic">
+                Precision-engineered recovery for the human machine. Experience the intersection of ancient stone healing and modern industrial strength.
+            </p>
+<div class="flex flex-wrap gap-6">
+<button class="gold-leaf-button text-background-dark font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest">
+                    Book Your Session
+                </button>
+<button class="bg-white/5 hover:bg-white/10 border border-chrome/30 text-chrome font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest transition-all backdrop-blur-sm">
+                    Explore Services
+                </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 left-6 right-6 hidden lg:flex justify-between items-end z-20">
+<div class="flex gap-16">
+<div class="relative pl-6 border-l border-accent-teal/50">
+<p class="font-heading text-5xl chrome-text">5000+</p>
+<p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-1">Sessions Completed</p>
+</div>
+<div class="relative pl-6 border-l border-accent-teal/50">
+<p class="font-heading text-5xl chrome-text">100%</p>
+<p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-1">Client Recovery</p>
+</div>
+</div>
+<div class="font-heading text-7xl chrome-text opacity-10">KATY // TEXAS</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-32 stone-bg relative overflow-hidden">
+<div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-teal/20 to-transparent"></div>
+<div class="absolute top-2/4 right-0 w-full h-px bg-gradient-to-r from-transparent via-chrome/20 to-transparent transform rotate-1"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
+<div>
+<h2 class="font-heading text-6xl md:text-7xl etched-text uppercase">Stone-Cut Services</h2>
+<div class="h-1 w-32 bg-gradient-to-r from-accent-teal to-transparent mt-4"></div>
+</div>
+<p class="text-chrome/60 max-w-xs text-right uppercase text-[10px] tracking-[0.3em] font-bold">Forging physical resilience through master-level modalities</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">fitness_center</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Deep Tissue</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Re-engineering muscular architecture by targeting the deepest layers of fascia and tissue.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">bolt</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Sports Recovery</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Performance-grade therapy designed for high-impact lifestyles and athletic endurance.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">medical_information</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Medical Focus</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Clinical precision applied to chronic pain, injury rehab, and structural alignment.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">layers</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Hot Stone</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Authentic chiseled stone therapy utilizing thermal conductivity to melt tension.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">grid_4x4</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Cupping/Shiatsu</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Traditional compression and suction techniques for modern industrial recovery.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+<span class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">family_history</span>
+</div>
+<h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Prenatal</h3>
+<p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Specially calibrated supportive care for the structural needs of expecting mothers.</p>
+<div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+<span>View Detail</span>
+<span class="h-px w-8 bg-primary/30"></span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 stone-bg border-y border-white/5 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-stretch gap-20">
+<div class="lg:w-1/2 relative min-h-[600px] rounded-sm overflow-hidden chiseled-card">
+<div class="absolute inset-0 bg-background-dark/20 z-10"></div>
+<img class="w-full h-full object-cover grayscale opacity-70" data-alt="Close-up of professional massage therapy hands on back" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ZYCC1eGavXAdypgHpw8slfQonOkmDzsKaPPB90BxYzYKayvSReUruqb1yHoLDwiexF7oNoR7DCs5PjZ6OdjrC8sjMEMwW771Gyj2aPIDQ3d8SecZfQkLWXwGowfPWVB36q_wuX__tJ20EyISIBI4n5hc41shHYUrw5FR50-0N8IR5CRUyFR2gaUs6TJenMukp-KE5CTwFheABXdzMJqZ2shpPmFVMGIN4IlnZGGFQM2gnqRJFjolqtmee6TFKaAk9jWQmv6rLSt4"/>
+<div class="absolute bottom-12 left-12 z-20">
+<p class="font-heading text-8xl chrome-text opacity-30 etched-text">PRECISION</p>
+</div>
+</div>
+<div class="lg:w-1/2 flex flex-col justify-center">
+<h2 class="font-heading text-7xl md:text-8xl etched-text mb-12">THE 3D <span class="chrome-text italic">DIFFERENCE</span></h2>
+<div class="space-y-12">
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-16 h-16 chiseled-card flex items-center justify-center text-primary font-heading text-3xl italic">01</div>
+<div>
+<h4 class="font-heading text-4xl text-white uppercase tracking-wider mb-3">DRIVEN</h4>
+<p class="text-chrome/70 leading-relaxed italic text-lg">Results-oriented protocols designed to forge physical improvements from the first session.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-16 h-16 chiseled-card flex items-center justify-center text-primary font-heading text-3xl italic">02</div>
+<div>
+<h4 class="font-heading text-4xl text-white uppercase tracking-wider mb-3">DEVOTED</h4>
+<p class="text-chrome/70 leading-relaxed italic text-lg">Unwavering commitment to maintaining your "human machine" at peak efficiency.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-16 h-16 chiseled-card flex items-center justify-center text-primary font-heading text-3xl italic">03</div>
+<div>
+<h4 class="font-heading text-4xl text-white uppercase tracking-wider mb-3">DEDICATED</h4>
+<p class="text-chrome/70 leading-relaxed italic text-lg">Consistent, high-caliber care that values every appointment with industrial precision.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 stone-bg relative overflow-hidden">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-heading text-[22vw] chrome-text opacity-[0.03] select-none pointer-events-none">MAXWELL</div>
+<div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+<div class="relative inline-block mb-16">
+<div class="w-72 h-72 rounded-full border-[12px] border-slate-custom overflow-hidden mx-auto shadow-[0_0_80px_rgba(192,197,206,0.1)] relative">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Portrait of Max the lead massage therapist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHbEB-SXZtjRS2Q4uXx_Kw2Y5vfY7yRFttH-I4RU046Qsd0q4oR65BhcPraVZkoRjWAD7I-Qe_cmnaqwF0VgWinzAzZm1IkzQXtgFZ7u2fBzcFjrTs9-118NgmUa_mg0tu1VTEtbxO-q43aw-HIl0y53IFd7uWAB8-ESTx5znJdic8vA7MlKRPNb6yO5c0DIcL44GstL5jCzKz-SeKYmmgEaCDfJKP12e4Gc3OYgqz98KUZajoj4-HZmvx1gTy6K5EbchB1J2GqKMD"/>
+<div class="absolute inset-0 border border-white/20 rounded-full pointer-events-none"></div>
+</div>
+<div class="absolute -bottom-2 right-4 gold-leaf-button text-background-dark font-heading text-3xl px-8 py-2 rounded-sm transform rotate-2">
+                LEAD LMT
+            </div>
+</div>
+<h2 class="font-heading text-9xl md:text-[12rem] etched-text leading-none mb-6">MAX</h2>
+<p class="text-chrome text-2xl italic font-light tracking-wide max-w-3xl mx-auto mb-16 leading-relaxed">
+            "Massage is not a luxury. In an industrial world, it is essential maintenance for the human machine."
+        </p>
+<div class="flex flex-wrap justify-center gap-16 text-chrome/60 uppercase text-xs tracking-[0.5em] font-black">
+<span class="flex items-center gap-3"><span class="w-2 h-2 bg-accent-teal rounded-full shadow-[0_0_8px_#5D8CA8]"></span> 15+ Years Exp</span>
+<span class="flex items-center gap-3"><span class="w-2 h-2 bg-accent-teal rounded-full shadow-[0_0_8px_#5D8CA8]"></span> Certified LMT</span>
+<span class="flex items-center gap-3"><span class="w-2 h-2 bg-accent-teal rounded-full shadow-[0_0_8px_#5D8CA8]"></span> Performance Coach</span>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section class="py-32 stone-bg">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="font-heading text-6xl md:text-7xl etched-text text-center mb-24 uppercase">Elite Reviews</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="chiseled-card p-10 group relative">
+<div class="flex text-primary mb-8">
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+</div>
+<p class="text-chrome/80 italic mb-10 text-lg leading-relaxed">"Max has an incredible understanding of anatomy. His deep tissue work fixed a shoulder issue I've had for 3 years. Truly industrial strength healing."</p>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 chiseled-card flex items-center justify-center font-black text-chrome text-lg">SM</div>
+<p class="text-white font-heading text-2xl uppercase tracking-[0.2em]">Shahla M.</p>
+</div>
+</div>
+<div class="chiseled-card p-10 group relative">
+<div class="flex text-primary mb-8">
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+</div>
+<p class="text-chrome/80 italic mb-10 text-lg leading-relaxed">"Best sports massage in Katy. I come here once a week to keep my training on track. The consistency is what makes 3D Massage different."</p>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 chiseled-card flex items-center justify-center font-black text-chrome text-lg">KF</div>
+<p class="text-white font-heading text-2xl uppercase tracking-[0.2em]">Kris F.</p>
+</div>
+</div>
+<div class="chiseled-card p-10 group relative">
+<div class="flex text-primary mb-8">
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+<span class="material-symbols-outlined text-lg">grade</span>
+</div>
+<p class="text-chrome/80 italic mb-10 text-lg leading-relaxed">"High pressure, high results. If you want a fluffy spa day, go elsewhere. If you want to feel like a new human, see Max."</p>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 chiseled-card flex items-center justify-center font-black text-chrome text-lg">ML</div>
+<p class="text-white font-heading text-2xl uppercase tracking-[0.2em]">M. L.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 stone-bg">
+<div class="max-w-7xl mx-auto px-6">
+<div class="chiseled-card p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden group">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<div class="liquid-metal-vein rotate-12 scale-150"></div>
+<div class="liquid-metal-vein -rotate-12 scale-150 translate-y-10"></div>
+</div>
+<div class="text-center md:text-left relative z-10">
+<h2 class="font-heading text-5xl md:text-6xl text-white mb-4 uppercase etched-text">Frequency Loyalty Program</h2>
+<p class="text-chrome/70 text-xl italic font-light">Visit twice in 30 days and unlock your industrial-grade bonus.</p>
+</div>
+<button class="gold-leaf-button text-background-dark font-black py-5 px-16 rounded-sm text-2xl uppercase tracking-widest whitespace-nowrap relative z-10">
+                Claim Your Bonus
+            </button>
+</div>
+</div>
+</section>
+<footer class="stone-bg pt-32 pb-12 border-t border-white/5 relative">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+<div class="space-y-8">
+<div class="flex items-center gap-1">
+<span class="text-3xl font-black chrome-text italic">3</span>
+<div class="logo-spine mx-1 scale-75"></div>
+<span class="text-3xl font-black chrome-text italic">D</span>
+<h1 class="font-heading text-xl tracking-[0.2em] chrome-text ml-4">MASSAGE</h1>
+</div>
+<p class="text-chrome/40 text-xs leading-relaxed uppercase tracking-[0.2em] font-bold italic">Engineered for recovery. <br/>Built for performance. <br/>Katy, Texas.</p>
+<div class="flex gap-4">
+<a class="w-12 h-12 chiseled-card flex items-center justify-center text-chrome/50 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-12 h-12 chiseled-card flex items-center justify-center text-chrome/50 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-heading text-2xl text-white mb-8 uppercase tracking-[0.2em]">Navigation</h4>
+<ul class="space-y-5 text-chrome/60 text-[10px] font-black uppercase tracking-[0.3em]">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Modalities</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Book Online</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-heading text-2xl text-white mb-8 uppercase tracking-[0.2em]">Contact</h4>
+<ul class="space-y-6 text-chrome/60 text-xs font-medium">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-accent-teal text-xl">location_on</span>
+<span class="tracking-widest uppercase">Katy, Texas 77494</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-accent-teal text-xl">phone</span>
+<span class="tracking-widest uppercase">(832) 555-0123</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-accent-teal text-xl">mail</span>
+<span class="tracking-widest uppercase">recovery@3dmassage.com</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-heading text-2xl text-white mb-8 uppercase tracking-[0.2em]">Maintenance Hours</h4>
+<ul class="space-y-4 text-chrome/60 text-[10px] font-black uppercase tracking-[0.3em]">
+<li class="flex justify-between border-b border-white/5 pb-2"><span>Mon - Fri</span> <span class="text-white">8AM - 8PM</span></li>
+<li class="flex justify-between border-b border-white/5 pb-2"><span>Saturday</span> <span class="text-white">9AM - 6PM</span></li>
+<li class="flex justify-between"><span>Sunday</span> <span class="text-white">10AM - 4PM</span></li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-chrome/30 text-[9px] uppercase tracking-[0.4em] font-black">
+<p>© 2024 3D MASSAGE INDUSTRIAL RECOVERY. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-10">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
