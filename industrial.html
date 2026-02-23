@@ -101,6 +101,13 @@
             box-shadow: 0 6px 20px rgba(212, 168, 71, 0.5), inset 0 1px 1px rgba(255,255,255,0.5);
             transform: translateY(-1px);
         }
+        .gold-leaf-text {
+            background: linear-gradient(to bottom, #cfb53b 0%, #f7ef8a 50%, #ae8625 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(207, 181, 59, 0.35));
+        }
         .logo-3d {
             position: relative;
             font-family: 'Bebas Neue', sans-serif;
@@ -284,13 +291,8 @@
 <body class="stone-bg font-display text-slate-100 selection:bg-primary/30">
     <nav class="fixed top-0 w-full z-50 bg-background-dark/90 border-b border-white/5 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-1 group cursor-pointer">
-                <div class="flex items-center">
-                    <span class="text-4xl font-black chrome-text leading-none italic">3</span>
-                    <div class="logo-spine mx-1"></div>
-                    <span class="text-4xl font-black chrome-text leading-none italic">D</span>
-                </div>
-                <h1 class="font-heading text-2xl tracking-[0.2em] chrome-text ml-4 hidden sm:block">MASSAGE</h1>
+            <div class="flex items-center group cursor-pointer">
+                <img src="6A299E56-AA45-435C-90D7-E9C41C67DFB1.png" alt="3D Massage Logo" class="h-12 w-auto">
             </div>
             <div class="hidden lg:flex items-center gap-10">
                 <a class="text-chrome/70 hover:text-white transition-colors text-xs font-bold tracking-[0.2em] uppercase"
@@ -310,74 +312,56 @@
             </div>
         </div>
     </nav>
-    <!-- Hero Section (Centered & Overlap Fix) -->
-    <section
-        class="relative min-h-screen border-b border-white/5 flex items-center justify-center overflow-hidden bg-[#0A0C10]">
-        <!-- Light Accents to remove the "cave" feel -->
-        <div class="glow-accent top-[-10%] right-[-10%] animate-pulse"
-            style="background: radial-gradient(circle, rgba(46, 196, 182, 0.08) 0%, transparent 70%);"></div>
-        <div class="glow-accent bottom-[-10%] left-[-10%]"
-            style="background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);"></div>
-        <div class="light-streak top-[20%] left-0"></div>
-        <div class="light-streak top-[60%] right-0 opacity-50"></div>
-
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden stone-bg">
         <div class="absolute inset-0 z-0">
             <div
-                class="absolute inset-0 bg-gradient-to-b from-background-dark/20 via-background-dark/60 to-background-dark z-10 backdrop-blur-[1px]">
+                class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/80 to-background-dark z-10">
             </div>
             <div
-                class="w-full h-full bg-[url('https://images.unsplash.com/photo-1540206276207-3af25c08abbb?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-40 mix-blend-luminosity animate-slow-zoom">
+                class="w-full h-full bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 mix-blend-luminosity">
             </div>
         </div>
-
-        <div class="relative z-20 max-w-6xl mx-auto px-6 text-center py-32">
-            <div
-                class="inline-flex items-center gap-3 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-10 backdrop-blur-md">
-                <span class="material-symbols-outlined text-accent-teal text-lg">diamond</span>
-                <span class="text-chrome text-[10px] font-black tracking-[0.3em] uppercase">Katy's Gold Standard of
-                    Recovery</span>
+        <div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-4xl">
+                <div
+                    class="inline-flex items-center gap-3 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+                    <span class="material-symbols-outlined text-accent-teal text-lg">diamond</span>
+                    <span class="text-chrome text-[10px] font-black tracking-[0.3em] uppercase">The Gold Standard of
+                        Recovery</span>
+                </div>
+                <h1 class="font-heading text-7xl md:text-[10rem] leading-[0.85] mb-8 etched-text">
+                    STRENGTH <br /><span class="gold-leaf-text">IN HEALING</span>
+                </h1>
+                <p class="text-chrome text-lg md:text-2xl max-w-2xl mb-12 leading-relaxed font-light italic">
+                    Precision-engineered recovery for the human machine. Experience the intersection of ancient stone
+                    healing and modern industrial strength.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <button
+                        class="gold-leaf-button text-background-dark font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest">
+                        Book Your Session
+                    </button>
+                    <button
+                        class="bg-white/5 hover:bg-white/10 border border-chrome/30 text-chrome font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest transition-all backdrop-blur-sm">
+                        Explore Services
+                    </button>
+                </div>
             </div>
-
-            <h1
-                class="font-heading text-6xl md:text-[11rem] leading-[0.85] mb-10 etched-text tracking-tighter shadow-2xl">
-                STRENGTH <br /><span class="chrome-text">IN HEALING</span>
-            </h1>
-
-            <p
-                class="text-chrome text-lg md:text-2xl max-w-3xl mx-auto mb-14 leading-relaxed font-light italic opacity-90">
-                Precision-engineered recovery for the human machine. Over 5,000 sessions of clinical-grade bodywork —
-                built to eliminate pain at the source and optimize your performance.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-8 mb-20">
-                <button
-                    class="gold-leaf-button text-background-dark font-black py-5 px-14 rounded-sm text-lg uppercase tracking-[0.2em] w-full sm:w-auto">
-                    Book Your Recovery
-                </button>
-                <button
-                    class="bg-white/5 hover:bg-white/10 border border-chrome/30 text-chrome font-black py-5 px-14 rounded-sm text-lg uppercase tracking-[0.2em] transition-all backdrop-blur-sm w-full sm:w-auto">
-                    View Systems
-                </button>
-            </div>
-
-            <!-- Stats Integrated (Overlap Fix) -->
-            <div class="flex flex-wrap justify-center gap-16 border-t border-white/10 pt-12">
-                <div class="relative pl-6 border-l-2 border-accent-teal">
-                    <p class="font-heading text-5xl md:text-6xl chrome-text">5000+</p>
-                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-1 font-black">Sessions Completed
+        </div>
+        <div class="absolute bottom-12 left-6 right-6 hidden lg:flex justify-between items-end z-20">
+            <div class="flex gap-16">
+                <div class="relative pl-6 border-l-2 border-primary/60">
+                    <p class="font-heading text-6xl gold-leaf-text">5000+</p>
+                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Sessions Completed
                     </p>
                 </div>
-                <div class="relative pl-6 border-l-2 border-accent-teal">
-                    <p class="font-heading text-5xl md:text-6xl chrome-text">100%</p>
-                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-1 font-black">Client Recovery</p>
+                <div class="relative pl-6 border-l-2 border-primary/60">
+                    <p class="font-heading text-6xl gold-leaf-text">100%</p>
+                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Client Recovery</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Background Etching -->
-        <div
-            class="absolute bottom-12 left-6 opacity-5 font-heading text-[15vw] chrome-text select-none pointer-events-none z-0">
-            ENGINEERED
+            <div class="font-heading text-7xl gold-leaf-text opacity-15">KATY // TEXAS</div>
         </div>
     </section>
 
@@ -397,176 +381,125 @@
         }
     </style>
     <div class="section-divider"></div>
-    <!-- Services Section (Industrial Inspo) -->
-    <section class="py-32 stone-bg relative overflow-hidden border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-
-            <div class="space-y-16">
+    <!-- Services Section -->
+    <section class="py-32 stone-bg relative overflow-hidden">
+        <div
+            class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-teal/20 to-transparent">
+        </div>
+        <div
+            class="absolute top-2/4 right-0 w-full h-px bg-gradient-to-r from-transparent via-chrome/20 to-transparent transform rotate-1">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
                 <div>
-                    <div
-                        class="inline-flex items-center gap-3 px-3 py-1 bg-accent-teal/10 border border-accent-teal/20 rounded-full mb-6 relative">
-                        <span class="w-1.5 h-1.5 rounded-full bg-accent-teal animate-pulse"></span>
-                        <span class="text-accent-teal font-black tracking-[0.3em] text-[10px] uppercase">Recovery
-                            Systems</span>
-                        <div class="absolute -right-1 -top-1 w-2 h-2 bg-chrome rounded-full opacity-20"></div>
-                    </div>
-                    <h2 class="font-heading text-6xl md:text-8xl etched-text mb-8 leading-[0.9]">PRECISION
-                        <br />RECOVERY SYSTEMS
-                    </h2>
-                    <p class="text-chrome/60 text-lg leading-relaxed max-w-lg font-light italic">
-                        Structural maintenance for high-performance individuals. Our systems are engineered to
-                        decompress, realign, and optimize your musculoskeletal framework.
-                    </p>
+                    <h2 class="font-heading text-6xl md:text-7xl etched-text uppercase">Stone-Cut Services</h2>
+                    <div class="h-1 w-32 bg-gradient-to-r from-accent-teal to-transparent mt-4"></div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-16">
-                    <!-- Modality Card 1 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">fitness_center</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Deep Tissue</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Structural overhaul targeting
-                                fascia and chronic tension at the deep tissue root layer.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modality Card 2 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">bolt</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Performance</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Precision protocols for
-                                athletes refusing downtime. Accelerate healing and range of motion.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modality Card 3 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">medical_information</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Clinical</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Clinical-grade intervention
-                                for post-surgical rehab and structural realignment systems.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modality Card 4 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">layers</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Thermal</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Heated basalt stone
-                                penetration therapy to dissolve molecular tension and stress.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modality Card 5 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">grid_4x4</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Decompress</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Strategic suction and pressure
-                                point activation systems for blood flow optimization.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modality Card 6 -->
-                    <div class="group space-y-4">
-                        <div
-                            class="w-16 h-16 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all duration-500 bg-white/[0.02]">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">family_history</span>
-                        </div>
-                        <div>
-                            <h4 class="font-heading text-3xl text-white tracking-wider mb-2">Maternal</h4>
-                            <p class="text-chrome/50 text-xs leading-relaxed italic mb-4">Specialized support systems
-                                built for pregnancy comfort and structural relief.</p>
-                            <div class="flex gap-6">
-                                <a href="https://3dmassage.as.me/" target="_blank"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-accent-teal hover:text-white transition-colors">Book
-                                    Calibration</a>
-                                <a href="#systems"
-                                    class="text-[9px] font-black uppercase tracking-[0.2em] text-chrome/30 hover:text-accent-teal transition-colors underline underline-offset-4">System
-                                    Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-chrome/60 max-w-xs text-right uppercase text-[10px] tracking-[0.3em] font-bold">Forging
+                    physical resilience through master-level modalities</p>
             </div>
-
-            <div class="relative group">
-                <div
-                    class="aspect-[4/5] rounded-sm rounded-tr-[120px] overflow-hidden border-2 border-white/10 chiseled-card relative z-10 shadow-[0_0_50px_rgba(46,196,182,0.1)]">
-                    <img src="https://images.unsplash.com/photo-1540206276207-3af25c08abbb?auto=format&fit=crop&w=1200&q=80"
-                        class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
-                        alt="Precision performance therapy">
-                    <!-- Industrial Badge -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
                     <div
-                        class="absolute bottom-8 right-8 chiseled-card p-6 border-accent-teal/30 transform translate-x-4 transition-transform group-hover:translate-x-0 bg-background-dark/80 backdrop-blur-md">
-                        <div class="flex items-center gap-4">
-                            <div class="font-heading text-5xl chrome-text">10Y</div>
-                            <div class="text-[8px] text-chrome font-black tracking-widest uppercase">
-                                Expertise<br />Certified</div>
-                        </div>
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">fitness_center</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Deep Tissue</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Re-engineering muscular
+                        architecture by targeting the deepest layers of fascia and tissue.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
                     </div>
                 </div>
-                <!-- Ambient Light Element -->
-                <div
-                    class="absolute -bottom-10 -left-10 w-64 h-64 bg-accent-teal/10 blur-[100px] rounded-full opacity-50">
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">bolt</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Sports Recovery</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Performance-grade therapy
+                        designed for high-impact lifestyles and athletic endurance.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">medical_information</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Medical Focus</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Clinical precision applied
+                        to chronic pain, injury rehab, and structural alignment.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">layers</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Hot Stone</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Authentic chiseled stone
+                        therapy utilizing thermal conductivity to melt tension.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">grid_4x4</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Cupping/Shiatsu</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Traditional compression and
+                        suction techniques for modern industrial recovery.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <div class="chiseled-card p-10 group hover:-translate-y-2 transition-all duration-500">
+                    <div
+                        class="w-16 h-16 bg-white/5 rounded-sm flex items-center justify-center mb-8 border border-white/10 group-hover:border-accent-teal transition-colors">
+                        <span
+                            class="material-symbols-outlined text-4xl text-accent-teal group-hover:scale-110 transition-transform">family_history</span>
+                    </div>
+                    <h3 class="font-heading text-4xl text-white mb-4 uppercase tracking-wider">Prenatal</h3>
+                    <p class="text-chrome/70 text-sm leading-relaxed mb-8 font-light italic">Specially calibrated
+                        supportive care for the structural needs of expecting mothers.</p>
+                    <div class="flex items-center gap-3 text-primary font-black text-[10px] uppercase tracking-[0.3em]">
+                        <span>View Detail</span>
+                        <span class="h-px w-8 bg-primary/30"></span>
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent-teal shadow-[0_0_15px_rgba(93,140,168,0.5)] opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
                 </div>
             </div>
         </div>
@@ -585,7 +518,7 @@
                 </div>
                 <div class="lg:w-1/2 flex flex-col justify-center">
                     <h2 class="font-heading text-7xl md:text-8xl etched-text mb-12">THE 3D <span
-                            class="chrome-text italic">DIFFERENCE</span></h2>
+                            class="italic gold-leaf-text">DIFFERENCE</span></h2>
                     <div class="space-y-12">
                         <div class="flex gap-8 group">
                             <div
@@ -755,54 +688,56 @@
     </section>
 
     <!-- Location & Maps -->
-    <section class="py-32 relative border-t border-white/5 stone-bg overflow-hidden">
-        <div
-            class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-teal/30 to-transparent">
+    <section class="py-32 relative border-t border-white/5 overflow-hidden"
+        style="background: linear-gradient(145deg, #1a1d22, #121417);">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent">
         </div>
         <div
             class="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
             <div class="flex flex-col justify-center space-y-12 order-2 lg:order-1">
                 <div>
-                    <h2 class="font-heading text-6xl md:text-7xl etched-text mb-8 uppercase leading-[0.9]">STATION ONE:
-                        <br /><span class="chrome-text">KATY, TEXAS</span>
+                    <h2 class="font-heading text-6xl md:text-7xl etched-text mb-8 uppercase leading-[0.9]">VISIT US IN
+                        <br /><span class="gold-leaf-text">KATY, TEXAS</span>
                     </h2>
-                    <p class="text-chrome/60 text-lg leading-relaxed max-w-lg font-light italic">
-                        Our primary recovery hub is engineered for clinical bodywork. Designed for quiet focus and
-                        intense relief, STATION ONE is where high-performance individuals reset their system.
+                    <p class="text-chrome/70 text-lg leading-relaxed max-w-lg font-light italic">
+                        Your recovery starts the moment you walk in. Our studio is designed for focus, comfort, and
+                        results — a space where you can leave the noise behind and invest in your body.
                     </p>
                 </div>
                 <div class="space-y-8">
-                    <div class="flex items-center gap-6 group">
+                    <div class="flex items-center gap-6 group"
+                        style="background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border-radius: 12px; padding: 16px 20px;">
                         <div
-                            class="w-14 h-14 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">location_on</span>
+                            class="w-14 h-14 chiseled-card flex items-center justify-center group-hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-3xl text-primary">location_on</span>
                         </div>
                         <div>
-                            <p class="text-xs text-accent-teal font-black tracking-widest uppercase mb-1">Coordinates
-                            </p>
-                            <p class="text-chrome font-heading text-2xl">KATY RECOVERY HUB // TX 77494</p>
+                            <p class="text-xs text-primary font-black tracking-widest uppercase mb-1">Our Location</p>
+                            <p class="text-white font-heading text-2xl">123 Wellness Blvd, Suite 400</p>
+                            <p class="text-chrome/70 text-sm">Katy, TX 77494</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-6 group">
+                    <div class="flex items-center gap-6 group"
+                        style="background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border-radius: 12px; padding: 16px 20px;">
                         <div
-                            class="w-14 h-14 chiseled-card flex items-center justify-center group-hover:border-accent-teal transition-all">
-                            <span class="material-symbols-outlined text-3xl text-accent-teal">schedule</span>
+                            class="w-14 h-14 chiseled-card flex items-center justify-center group-hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-3xl text-primary">schedule</span>
                         </div>
                         <div>
-                            <p class="text-xs text-accent-teal font-black tracking-widest uppercase mb-1">Operation
-                                Hours</p>
-                            <p class="text-chrome font-heading text-2xl">0900 — 2000 HRS // MON-SAT</p>
+                            <p class="text-xs text-primary font-black tracking-widest uppercase mb-1">Business Hours</p>
+                            <p class="text-white font-heading text-2xl">Monday – Saturday</p>
+                            <p class="text-chrome/70 text-sm">9:00 AM – 8:00 PM &nbsp;·&nbsp; Sunday: Closed</p>
                         </div>
                     </div>
                 </div>
                 <button
                     class="gold-leaf-button text-background-dark font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest self-start">
-                    Launch Navigation
+                    Get Directions
                 </button>
             </div>
             <div class="relative group min-h-[500px]">
                 <div
-                    class="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 transform transition group-hover:scale-[1.01] duration-500">
+                    class="absolute inset-0 rounded-sm overflow-hidden shadow-2xl border-2 border-white/10 transform transition group-hover:scale-[1.01] duration-500">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110595.03472097204!2d-95.89063683057169!3d29.791552599999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d7c7138383f9%3A0xe67db73ca94d6ea!2sKaty%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -811,18 +746,14 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
     <footer class="stone-bg pt-32 pb-12 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
                 <div class="space-y-8">
-                    <div class="flex items-center gap-1">
-                        <span class="text-3xl font-black chrome-text italic">3</span>
-                        <div class="logo-spine mx-1 scale-75"></div>
-                        <span class="text-3xl font-black chrome-text italic">D</span>
-                        <h1 class="font-heading text-xl tracking-[0.2em] chrome-text ml-4">MASSAGE</h1>
+                    <div class="flex items-center">
+                        <img src="6A299E56-AA45-435C-90D7-E9C41C67DFB1.png" alt="3D Massage Logo" class="h-10 w-auto">
                     </div>
                     <p class="text-chrome/40 text-xs leading-relaxed uppercase tracking-[0.2em] font-bold italic">
                         Engineered for recovery. <br />Built for performance. <br />Katy, Texas.</p>
