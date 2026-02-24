@@ -102,11 +102,11 @@
             transform: translateY(-1px);
         }
         .gold-leaf-text {
-            background: linear-gradient(to bottom, #cfb53b 0%, #f7ef8a 50%, #ae8625 100%);
+            background: linear-gradient(135deg, #D4A847 0%, #B88A2D 50%, #D4A847 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 4px rgba(207, 181, 59, 0.35));
+            filter: drop-shadow(0 2px 2px rgba(184, 138, 45, 0.4));
         }
         .logo-3d {
             position: relative;
@@ -319,7 +319,7 @@
                 class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/80 to-background-dark z-10">
             </div>
             <div
-                class="w-full h-full bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 mix-blend-luminosity">
+                class="w-full h-full bg-[url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 mix-blend-luminosity">
             </div>
         </div>
         <div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
@@ -337,7 +337,7 @@
                     Precision-engineered recovery for the human machine. Experience the intersection of ancient stone
                     healing and modern industrial strength.
                 </p>
-                <div class="flex flex-wrap gap-6">
+                <div class="flex flex-wrap gap-6 mb-16">
                     <button
                         class="gold-leaf-button text-background-dark font-black py-5 px-12 rounded-sm text-lg uppercase tracking-widest">
                         Book Your Session
@@ -347,20 +347,22 @@
                         Explore Services
                     </button>
                 </div>
+                <!-- Stats Trust Bar -->
+                <div class="flex flex-wrap gap-16 pt-12 border-t border-white/5">
+                    <div class="relative pl-6 border-l-2 border-primary/60">
+                        <p class="font-heading text-6xl gold-leaf-text">5000+</p>
+                        <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Sessions
+                            Completed</p>
+                    </div>
+                    <div class="relative pl-6 border-l-2 border-primary/60">
+                        <p class="font-heading text-6xl gold-leaf-text">100%</p>
+                        <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Client Recovery
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="absolute bottom-12 left-6 right-6 hidden lg:flex justify-between items-end z-20">
-            <div class="flex gap-16">
-                <div class="relative pl-6 border-l-2 border-primary/60">
-                    <p class="font-heading text-6xl gold-leaf-text">5000+</p>
-                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Sessions Completed
-                    </p>
-                </div>
-                <div class="relative pl-6 border-l-2 border-primary/60">
-                    <p class="font-heading text-6xl gold-leaf-text">100%</p>
-                    <p class="text-[10px] text-chrome/60 uppercase tracking-[0.4em] mt-2 font-black">Client Recovery</p>
-                </div>
-            </div>
+        <div class="absolute bottom-12 right-6 hidden lg:block z-20">
             <div class="font-heading text-7xl gold-leaf-text opacity-15">KATY // TEXAS</div>
         </div>
     </section>
