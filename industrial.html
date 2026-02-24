@@ -102,19 +102,12 @@
             transform: translateY(-1px);
         }
         .gold-leaf-text {
-            /* Matching the Gold Leaf Button Gradient exactly */
-            background: linear-gradient(135deg, #D4A847 0%, #B88A2D 50%, #D4A847 100%);
+            background: linear-gradient(135deg, #D4A847 100%, #B88A2D 50%, #D4A847 0%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* Adding a crisp dark drop shadow to make the gold pop against the dark background */
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-            
-            /* Match the Bebas Neue heading style */
-            font-family: 'Bebas Neue', sans-serif;
-            font-weight: 900;
-            display: inline-block;
+            /* This adds the dark "industrial" outline */
+            -webkit-text-stroke: 1.5px #121417; 
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
         }
         .logo-3d {
             position: relative;
@@ -321,7 +314,7 @@
         </div>
     </nav>
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-32 md:pt-48 overflow-hidden stone-bg">
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden stone-bg">
         <div class="absolute inset-0 z-0">
             <div
                 class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/80 to-background-dark z-10">
@@ -338,8 +331,8 @@
                     <span class="text-chrome text-[10px] font-black tracking-[0.3em] uppercase">The Gold Standard of
                         Recovery</span>
                 </div>
-                <h1 class="font-heading text-7xl md:text-[10rem] leading-[0.85] mb-8 etched-text uppercase">
-                    <span class="gold-leaf-text">STRENGTH</span> <br /><span class="gold-leaf-text">IN HEALING</span>
+                <h1 class="font-heading text-7xl md:text-[10rem] leading-[0.85] mb-8 etched-text">
+                    STRENGTH <br /><span class="gold-leaf-text">IN HEALING</span>
                 </h1>
                 <p class="text-chrome text-lg md:text-2xl max-w-2xl mb-12 leading-relaxed font-light italic">
                     Precision-engineered recovery for the human machine. Experience the intersection of ancient stone
@@ -370,9 +363,9 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-12 left-6 hidden lg:block z-20">
-            <div class="font-heading text-7xl gold-leaf-text opacity-100">KATY / TEXAS</div>
-        </div>
+        <div class="absolute bottom-12 right-5 hidden lg:block z-20">
+    <div class="font-heading text-7xl gold-leaf-text opacity-100">KATY / TEXAS</div>
+</div>
     </section>
 
     <style>
@@ -402,11 +395,10 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-6">
                 <div>
-                    <h2 class="font-heading text-6xl md:text-7xl etched-text uppercase gold-leaf-text">Stone-Cut
-                        Services</h2>
+                    <h2 class="font-heading text-6xl md:text-7xl etched-text uppercase">Stone-Cut Services</h2>
                     <div class="h-1 w-32 bg-gradient-to-r from-accent-teal to-transparent mt-4"></div>
                 </div>
-                <p class="text-chrome/60 max-w-xs text-left uppercase text-[10px] tracking-[0.3em] font-bold">Forging
+                <p class="text-chrome/60 max-w-xs text-right uppercase text-[10px] tracking-[0.3em] font-bold">Forging
                     physical resilience through master-level modalities</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -528,9 +520,8 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 flex flex-col justify-center">
-                    <h2 class="font-heading text-7xl md:text-8xl etched-text mb-12 uppercase gold-leaf-text">THE 3D
-                        <span class="italic">DIFFERENCE</span>
-                    </h2>
+                    <h2 class="font-heading text-7xl md:text-8xl etched-text mb-12">THE 3D <span
+                            class="italic gold-leaf-text">DIFFERENCE</span></h2>
                     <div class="space-y-12">
                         <div class="flex gap-8 group">
                             <div
@@ -607,8 +598,7 @@
     <div class="section-divider"></div>
     <section class="py-32 stone-bg">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="font-heading text-6xl md:text-7xl etched-text text-center mb-24 uppercase gold-leaf-text">The
-                Proof Is in the
+            <h2 class="font-heading text-6xl md:text-7xl etched-text text-center mb-24 uppercase">The Proof Is in the
                 Recovery</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
                 <div
@@ -686,8 +676,7 @@
                     <div class="liquid-metal-vein -rotate-12 scale-150 translate-y-10"></div>
                 </div>
                 <div class="text-center md:text-left relative z-10">
-                    <h2 class="font-heading text-5xl md:text-6xl text-white mb-4 uppercase etched-text gold-leaf-text">
-                        Commit to Your
+                    <h2 class="font-heading text-5xl md:text-6xl text-white mb-4 uppercase etched-text">Commit to Your
                         Recovery</h2>
                     <p class="text-chrome/70 text-xl italic font-light">Train hard. Recover harder. Visit twice in 30
                         days and unlock a complimentary enhancement.</p>
@@ -710,10 +699,8 @@
             class="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
             <div class="flex flex-col justify-center space-y-12 order-2 lg:order-1">
                 <div>
-                    <h2
-                        class="font-heading text-6xl md:text-7xl etched-text mb-8 uppercase leading-[0.9] gold-leaf-text">
-                        VISIT US IN
-                        <br />KATY, TEXAS
+                    <h2 class="font-heading text-6xl md:text-7xl etched-text mb-8 uppercase leading-[0.9]">VISIT US IN
+                        <br /><span class="gold-leaf-text">KATY, TEXAS</span>
                     </h2>
                     <p class="text-chrome/70 text-lg leading-relaxed max-w-lg font-light italic">
                         Your recovery starts the moment you walk in. Our studio is designed for focus, comfort, and
