@@ -6,8 +6,27 @@ export const Button5 = ({
   text = "Our Work",
   className,
   asLink = false,
-  to = "#"
+  to = "#",
+  theme = "dark", // "dark" (bg-white/text-charcoal) or "light" (bg-primary/text-white)
+  size = "default", // "default" or "sm"
+  hasWhiteOutline = false
 }) => {
+  const isDark = theme === "dark";
+
+  // Base background and text colors based on the theme
+  const baseBg = isDark ? "bg-white text-charcoal" : "bg-primary text-white";
+
+  // Hover container behavior based on theme
+  // Dark: Green gradient moving bg with white text
+  // Light: White static bg with primary green text and a green border
+  let hoverContainerBg = isDark
+    ? "bg-gradient-to-r from-forest-green via-primary to-forest-green bg-[length:200%_auto] group-hover:bg-[100%_center] text-white"
+    : "bg-white text-primary rounded-[100px] border-2 border-primary box-border";
+
+  if (isDark && hasWhiteOutline) {
+    hoverContainerBg += " border border-white box-border";
+  }
+
   const ButtonContent = () => (
     <>
       <span
@@ -15,13 +34,17 @@ export const Button5 = ({
         {text}
       </span>
       <div
-        className='flex gap-2 text-white bg-[#404F3D] z-10 items-center absolute left-0 top-0 h-full w-full justify-center translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 rounded-[100px] font-medium tracking-widest uppercase'>
+        className={`flex gap-2 z-10 items-center absolute left-0 top-0 h-full w-full justify-center translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 font-medium tracking-widest uppercase ${hoverContainerBg} ${isDark ? 'rounded-[100px]' : ''}`}>
         <span>{text}</span>
       </div>
     </>
   );
 
-  const baseClasses = "group relative flex items-center justify-center p-2 w-full max-w-5xl mx-auto h-[68px] border-none bg-white rounded-[100px] overflow-hidden text-charcoal text-center text-sm md:text-base cursor-pointer shadow-2xl active:scale-[0.98] transition-all duration-300";
+  const paddingClass = size === "sm" ? "px-6 py-3.5" : "p-2";
+  const heightClass = size === "sm" ? "h-auto min-h-[44px]" : "h-[68px]";
+  const textSizeClass = size === "sm" ? "text-xs px-2" : "text-sm md:text-base";
+
+  const baseClasses = `group relative flex items-center justify-center ${paddingClass} w-full max-w-5xl mx-auto ${heightClass} border border-transparent rounded-[100px] overflow-hidden text-center ${textSizeClass} cursor-pointer shadow-2xl active:scale-[0.98] transition-all duration-300 ${baseBg}`;
 
   if (asLink) {
     return (

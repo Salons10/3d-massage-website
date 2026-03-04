@@ -1,5 +1,5 @@
 import React from 'react';
-import { GradientCard } from './components/ui/gradient-card';
+import { TestimonialCard } from './components/ui/testimonial-card';
 
 const Testimonials = () => {
     return (
@@ -9,24 +9,21 @@ const Testimonials = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
                     {/* Testimonial 1 */}
-                    <GradientCard
-                        title="Michael T., Athlete"
+                    <TestimonialCard
+                        title="Michael T."
                         description="Max diagnosed the structural tension in my rotator cuff immediately. After just three targeted neuromuscular sessions and a custom stretching protocol, I am completely pain-free and back to lifting weights."
-                        icon={<span className="material-symbols-outlined font-bold">verified</span>}
                     />
 
                     {/* Testimonial 2 */}
-                    <GradientCard
-                        title="Sarah L., Post-Op Patient"
+                    <TestimonialCard
+                        title="Sarah L."
                         description="The lymphatic drainage treatments were instrumental in my post-surgical recovery. My surgeon was amazed at how quickly the swelling reduced and how fast my range of motion returned."
-                        icon={<span className="material-symbols-outlined font-bold">verified</span>}
                     />
 
                     {/* Testimonial 3 */}
-                    <GradientCard
-                        title="David H., Consultant"
+                    <TestimonialCard
+                        title="David H."
                         description="I suffered from chronic lower back pain for over five years. Max didn't just rub my back; he analyzed my gait, released the deep fascial adhesions, and literally gave me my active life back."
-                        icon={<span className="material-symbols-outlined font-bold">verified</span>}
                     />
 
                 </div>

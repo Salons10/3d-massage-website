@@ -1,11 +1,12 @@
 import React from 'react';
 import { GradientCard } from './components/ui/gradient-card';
+import { Button5 } from './components/ui/button-5';
 
 const Services = () => {
     return (
         <section className="pt-12 pb-24 px-6 lg:px-20 max-w-[1440px] mx-auto bg-transparent relative z-20">
             <div className="text-center mb-16 relative z-10">
-                <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4 bg-primary/10 px-3 py-1 rounded border border-primary/20">
+                <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4">
                     Core Therapies
                 </span>
                 <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-charcoal dark:text-white tracking-tight">Targeted Clinical Therapies</h2>
@@ -44,9 +45,7 @@ const Services = () => {
             </div>
 
             <div className="mt-16 text-center">
-                <a href="/services" className="inline-flex items-center justify-center px-10 py-4 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    View All Services <span className="material-symbols-outlined ml-2">explore</span>
-                </a>
+                <Button5 asLink to="/services" theme="dark" text="View All Services" className="max-w-[300px] border border-charcoal/10" />
             </div>
         </section>
     );

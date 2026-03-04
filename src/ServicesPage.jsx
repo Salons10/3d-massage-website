@@ -130,7 +130,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 195 },
                 { duration: "2 hr", price: 260 }
             ],
-            imageUrl: "/craniosacral_male.png"
+            imageUrl: "/craniosacral_therapy.png"
         },
         {
             id: 11,

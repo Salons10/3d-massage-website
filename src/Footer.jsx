@@ -31,7 +31,7 @@ const Footer = () => {
                 </div>
 
                 {/* Middle Column: Links (Centered) */}
-                <div className="flex flex-col md:items-center">
+                <div className="flex flex-col md:items-center md:pt-[80px]">
                     <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
                         <div>
                             <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Pages</h4>
@@ -53,7 +53,7 @@ const Footer = () => {
                 </div>
 
                 {/* Right Column: Contact Info */}
-                <div className="flex flex-col md:items-end md:text-right">
+                <div className="flex flex-col md:items-end md:text-right md:pt-[80px]">
                     <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Contact Information</h4>
                     <ul className="space-y-4 text-sm font-medium">
                         <li className="flex items-start gap-3 md:flex-row-reverse">

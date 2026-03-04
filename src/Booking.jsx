@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button5 } from './components/ui/button-5';
 const Booking = () => {
     return (
         <section className="py-24 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50 relative overflow-hidden">
@@ -13,11 +14,8 @@ const Booking = () => {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -mr-48 -mt-48 blur-3xl pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full -ml-48 -mb-48 blur-3xl pointer-events-none"></div>
 
-                {/* Subtle geometric lines */}
-                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGw0MCA0ME0wIDQwbDQwLTQwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==')" }}></div>
-
                 <div className="relative z-10 max-w-2xl text-center lg:text-left">
-                    <span className="inline-block text-background-light font-bold tracking-widest text-xs uppercase mb-4 bg-primary/10 px-3 py-1 rounded border border-primary/20">
+                    <span className="inline-block text-background-light font-bold tracking-widest text-xs uppercase mb-4">
                         Ready for Relief?
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -27,11 +25,8 @@ const Booking = () => {
                         Experience premier clinical bodywork. Let us help you break the cycle of chronic tension and restore your structural health with targeted, evidence-based therapy.
                     </p>
                 </div>
-                <div className="relative z-10 shrink-0">
-                    <Link to="/booking" className="flex items-center justify-center gap-3 bg-primary text-white px-10 py-5 rounded-xl font-bold text-base hover:bg-forest-green transition-all shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-1 transform duration-300 border border-primary/50">
-                        <span className="material-symbols-outlined text-[22px]">calendar_month</span>
-                        Schedule Therapy Session
-                    </Link>
+                <div className="relative z-10 shrink-0 w-full lg:w-auto mt-8 lg:mt-0">
+                    <Button5 asLink to="/booking" theme="dark" text="Schedule Therapy Session" className="max-w-md mx-auto" hasWhiteOutline={true} />
                 </div>
             </div>
         </section>

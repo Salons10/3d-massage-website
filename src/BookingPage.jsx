@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button5 } from './components/ui/button-5';
 
 const API_KEY = 'cal_live_51722273ddda25a1bb2bf6358627251f';
 const EVENT_TYPE_ID = '4912726'; // Base event type, assuming it returns 30min or flexible slots
@@ -440,17 +441,17 @@ const BookingPage = () => {
                             <button onClick={() => setShowModal(false)} className="text-charcoal/60 font-bold hover:text-charcoal transition-colors">
                                 Skip Enhancements
                             </button>
-                            <button
-                                onClick={finalizeBooking}
-                                disabled={isBooking}
-                                className="w-full md:w-auto flex justify-center items-center gap-2 bg-charcoal text-white px-10 py-4 rounded-xl font-bold disabled:opacity-50 hover:bg-forest-green hover:shadow-lg transition-all"
-                            >
+                            <div className="w-full md:w-1/2 min-w-[280px]">
                                 {isBooking ? (
-                                    <><span className="material-symbols-outlined animate-spin text-[18px]">sync</span> Confirming...</>
+                                    <button disabled className="w-full md:w-auto flex justify-center items-center gap-2 bg-charcoal/10 text-charcoal/50 px-10 py-[18px] rounded-[100px] font-bold cursor-not-allowed">
+                                        <span className="material-symbols-outlined animate-spin text-[18px]">sync</span> Confirming...
+                                    </button>
                                 ) : (
-                                    <><span className="material-symbols-outlined text-[18px]">task_alt</span> Finalize Booking</>
+                                    <div onClick={finalizeBooking} className="h-[60px] w-full">
+                                        <Button5 text="Finalize Booking" theme="light" className="h-full" />
+                                    </div>
                                 )}
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>

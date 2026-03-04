@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button5 } from './components/ui/button-5';
 
 const ServiceCard = ({ id, name, description, purpose, procedure, pricingOptions, imageUrl }) => {
     const [selectedDurationIndex, setSelectedDurationIndex] = useState(0);
@@ -33,7 +34,7 @@ const ServiceCard = ({ id, name, description, purpose, procedure, pricingOptions
                 </div>
             </div>
 
-            <div className="p-4 pb-5 flex-grow flex flex-col bg-background-light h-full">
+            <div className="p-4 pb-2 flex-grow flex flex-col bg-background-light h-full">
                 <div className="flex-grow">
                     <p className="text-charcoal/80 text-sm italic mb-2 leading-relaxed font-medium">
                         {description}
@@ -77,9 +78,9 @@ const ServiceCard = ({ id, name, description, purpose, procedure, pricingOptions
                                     <button
                                         key={index}
                                         onClick={() => setSelectedDurationIndex(index)}
-                                        className={`flex-1 min-w-[30%] py-2.5 px-3 rounded-lg text-sm font-bold border transition-all duration-200 ${isSelected
+                                        className={`flex-1 min-w-[30%] py-2.5 px-3 rounded-full text-sm font-bold border transition-all duration-200 ring-offset-2 ${isSelected
                                             ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-105'
-                                            : 'bg-transparent border-charcoal/20 dark:border-white/20 text-charcoal/70 dark:text-slate-400 hover:border-primary/50 hover:text-primary'
+                                            : 'bg-transparent border-primary/50 text-primary hover:border-primary hover:ring-2 hover:ring-primary/50'
                                             }`}
                                     >
                                         {opt.duration}
@@ -94,13 +95,9 @@ const ServiceCard = ({ id, name, description, purpose, procedure, pricingOptions
                                 <span className="text-xs font-bold text-charcoal/50 dark:text-slate-500 uppercase tracking-wider">Session Price</span>
                                 <span className="text-2xl font-extrabold text-charcoal dark:text-white">${selectedOption.price}</span>
                             </div>
-                            <button
-                                onClick={handleBookNow}
-                                className="flex items-center gap-2 bg-charcoal dark:bg-white text-white dark:text-charcoal px-6 py-3.5 rounded-xl font-bold text-sm hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-all duration-300 shadow-xl hover:-translate-y-0.5"
-                            >
-                                Book Now
-                                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
+                            <div onClick={handleBookNow} className="w-1/2 min-w-[160px]">
+                                <Button5 text="Book Now" theme="dark" className="h-[48px] text-sm !border !border-charcoal/10 !shadow-none" />
+                            </div>
                         </div>
                     </div>
                 </div>
