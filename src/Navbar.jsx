@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button5 } from './components/ui/button-5';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
     // Only homepage starts transparent. Inner pages are always solid.
-    const isTransparent = location.pathname === '/' && !isScrolled;
+    const isTransparent = location.pathname === '/' && !isScrolled && !isMobileMenuOpen;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,16 +40,58 @@ const Navbar = () => {
                     <Link className={`text-xs md:text-sm font-bold tracking-[0.15em] uppercase hover:opacity-70 transition-opacity ${isTransparent ? 'text-white' : 'text-charcoal'}`} to="/services">Services</Link>
                 </div>
 
-                {/* Right Action Icons/Buttons */}
+                {/* Right Action Icons/Buttons Layout */}
                 <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
                     <div className="hidden sm:block">
                         <Button5 asLink to="/booking" theme={isTransparent ? "dark" : "light"} size="sm" text="Book Now" className="!w-auto !shadow-none hover:-translate-y-0.5" />
                     </div>
+
                     <a href="tel:346-218-9704" className={`p-3 rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm' : 'bg-charcoal/5 text-charcoal hover:bg-charcoal/10'}`}>
                         <span className="material-symbols-outlined text-[20px]">call</span>
                     </a>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className={`lg:hidden p-3 rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm' : 'text-charcoal bg-charcoal/5 hover:bg-charcoal/10'}`}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        <span className="material-symbols-outlined text-[24px]">
+                            {isMobileMenuOpen ? 'close' : 'menu'}
+                        </span>
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Dropdown Menu */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="lg:hidden absolute top-full left-0 w-full bg-background-light border-b border-charcoal/5 shadow-xl flex flex-col items-center py-6 gap-6"
+                    >
+                        <Link
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-sm font-bold tracking-[0.15em] uppercase text-charcoal hover:text-primary transition-colors"
+                            to="/"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-sm font-bold tracking-[0.15em] uppercase text-charcoal hover:text-primary transition-colors"
+                            to="/services"
+                        >
+                            Services
+                        </Link>
+                        <div className="w-full px-6 pt-4 border-t border-charcoal/5 flex justify-center sm:hidden">
+                            <Button5 asLink to="/booking" onClick={() => setIsMobileMenuOpen(false)} theme="light" size="default" text="Book Now" className="w-full max-w-[200px]" />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };
