@@ -14,7 +14,7 @@ const ServicesPage = () => {
                 { duration: "1 hr", price: 130 },
                 { duration: "1 hr 30 min", price: 195 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/mld_clinical.png"
         },
         {
             id: 6,
@@ -40,7 +40,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 165 },
                 { duration: "2 hr", price: 220 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/russian_sports_male.png"
         },
         {
             id: 1,
@@ -66,7 +66,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 165 },
                 { duration: "2 hr", price: 220 }
             ],
-            imageUrl: "/service_triggerpoint.png"
+            imageUrl: "/deep_tissue.png"
         },
         {
             id: 3,
@@ -79,7 +79,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 165 },
                 { duration: "2 hr", price: 220 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/swedish_massage.png"
         },
         {
             id: 5,
@@ -104,7 +104,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 185 },
                 { duration: "2 hr", price: 240 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/hot_stones.png"
         },
         {
             id: 8,
@@ -117,7 +117,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 195 },
                 { duration: "2 hr", price: 260 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/prenatal_male.png"
         },
         {
             id: 9,
@@ -130,7 +130,7 @@ const ServicesPage = () => {
                 { duration: "1 hr 30 min", price: 195 },
                 { duration: "2 hr", price: 260 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/craniosacral_male.png"
         },
         {
             id: 11,
@@ -142,7 +142,7 @@ const ServicesPage = () => {
                 { duration: "1 hr", price: 130 },
                 { duration: "1 hr 30 min", price: 195 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/shiatsu_male.png"
         },
         {
             id: 12,
@@ -154,7 +154,7 @@ const ServicesPage = () => {
                 { duration: "1 hr", price: 130 },
                 { duration: "1 hr 30 min", price: 195 }
             ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/assisted_stretching_male.png"
         },
         {
             id: 13,
@@ -178,16 +178,16 @@ const ServicesPage = () => {
 
             {/* Page Header */}
             <section className="max-w-[1440px] mx-auto px-6 lg:px-20 mb-16 text-center relative z-10">
-                <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4 bg-primary/10 px-3 py-1 rounded border border-primary/20">
+                <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4">
                     Clinical Directory
                 </span>
                 <h1 className="text-4xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-6">
                     Evidence-Based <span className="text-primary italic">Therapies</span>
                 </h1>
-                <div className="max-w-3xl mx-auto border border-charcoal/10 rounded-2xl p-8 bg-white/50 backdrop-blur-sm shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-full -ml-16 -mt-16 blur-2xl"></div>
-                    <p className="text-lg text-charcoal/80 dark:text-slate-300 leading-relaxed font-medium relative z-10">
-                        Select from our comprehensive range of <strong className="text-primary uppercase tracking-wide text-sm ml-1 mr-1">strictly treatment-based</strong> therapies.
+                <div className="max-w-3xl mx-auto rounded-2xl p-8 bg-[#404F3D] shadow-md relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-2xl"></div>
+                    <p className="text-lg text-white leading-relaxed font-medium relative z-10">
+                        Select from our comprehensive range of <strong className="text-white font-bold uppercase tracking-wide text-sm mx-1">strictly treatment-based</strong> therapies.
                         Each protocol is uniquely adapted to your specific biomechanical needs and clinical goals to ensure optimal functional restoration.
                         We do not offer standard relaxation spa massages — our focus is entirely on clinical outcomes and pain relief.
                     </p>
@@ -250,9 +250,9 @@ const ServicesPage = () => {
                         </div>
                     </div>
 
-                    <div className="bg-primary/10 rounded-lg p-6 text-center border border-primary/20">
-                        <p className="text-charcoal dark:text-white font-medium">
-                            <strong className="text-primary">Frequency Bonus Plan:</strong> If you visit us more than once within a 30-day period, you receive a free clinical enhancement of your choice.
+                    <div className="bg-[#404F3D] rounded-lg p-6 text-center shadow-md">
+                        <p className="text-white font-medium">
+                            <strong className="text-white font-bold">Frequency Bonus Plan:</strong> If you visit us more than once within a 30-day period, you receive a free clinical enhancement of your choice.
                         </p>
                     </div>
                 </div>

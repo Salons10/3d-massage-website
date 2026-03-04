@@ -2,139 +2,91 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <>
-            {/* Location & Maps */}
-            <section className="py-24 bg-background-light dark:bg-background-dark/50">
-                <div className="max-w-[1440px] mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-                    <div className="space-y-8 flex flex-col justify-center">
+        <footer className="bg-charcoal text-white/60 py-12 px-6 lg:px-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-forest-green/80 to-transparent pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -mr-48 -mt-48 blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full -ml-48 -mb-48 blur-3xl pointer-events-none"></div>
+
+            <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                {/* Left Column: Brand & Socials */}
+                <div className="flex flex-col">
+                    <div className="flex items-center gap-3 mb-6">
+                        <img src="/E79D5A02-F42A-438F-B5EC-A88EE1D5EA4F.png" alt="3D Massage Logo" className="h-14 w-auto brightness-0 invert" />
+                    </div>
+                    <p className="text-sm leading-relaxed mb-6 max-w-sm">
+                        Premium evidence-based clinical massage therapy serving the Katy, TX community with targeted care for chronic pain and physical rehabilitation.
+                    </p>
+                    <div className="flex gap-4">
+                        <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all group" href="#" aria-label="Facebook">
+                            <svg className="w-5 h-5 fill-current opacity-60 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all group" href="#" aria-label="Google Business">
+                            <svg className="w-5 h-5 fill-current opacity-60 group-hover:opacity-100 transition-opacity" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                {/* Middle Column: Links (Centered) */}
+                <div className="flex flex-col md:items-center">
+                    <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
                         <div>
-                            <span className="text-primary font-bold tracking-widest text-xs uppercase block mb-4">
-                                Clinical Practice
-                            </span>
-                            <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6 text-charcoal dark:text-white">
-                                Specialized Treatment Facility in Katy
-                            </h2>
-                            <p className="text-lg text-charcoal/70 dark:text-slate-300 leading-relaxed max-w-lg font-medium">
-                                Our modern space is designed to support the clinical process while maintaining a welcoming, premium atmosphere. Accessible parking available right at the entrance.
-                            </p>
+                            <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Pages</h4>
+                            <ul className="space-y-3 text-sm font-medium">
+                                <li><a className="hover:text-primary transition-colors" href="/">Home</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services">Services</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/booking">Booking</a></li>
+                            </ul>
                         </div>
+                        <div>
+                            <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Services</h4>
+                            <ul className="space-y-3 text-sm font-medium">
+                                <li><a className="hover:text-primary transition-colors" href="/services#manual-lymphatic-drainage">Manual Lymphatic Drainage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#medical-massage">Medical Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#russian-sports-massage">Russian Sports Massage</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                        <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-charcoal/5 dark:border-white/5 space-y-8">
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                                    <span className="material-symbols-outlined">location_on</span>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-xl mb-1 text-charcoal dark:text-white">Mason Road Studio</h4>
-                                    <p className="text-charcoal/70 dark:text-slate-400 font-medium mb-4">2039 N. Mason RD Suite 602<br />Katy, TX 77449</p>
-
-                                    <h4 className="font-bold text-xl mb-1 text-charcoal dark:text-white">Commercial Center Clinic</h4>
-                                    <p className="text-charcoal/70 dark:text-slate-400 font-medium">2643 Commercial Center Blvd B340<br />Katy, TX 77494</p>
-                                </div>
+                {/* Right Column: Contact Info */}
+                <div className="flex flex-col md:items-end md:text-right">
+                    <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Contact Information</h4>
+                    <ul className="space-y-4 text-sm font-medium">
+                        <li className="flex items-start gap-3 md:flex-row-reverse">
+                            <span className="material-symbols-outlined text-primary">location_on</span>
+                            <div>
+                                <span className="block mb-1 text-white font-bold">Mason Road Studio:</span>
+                                <span>2039 N. Mason RD Suite 602<br />Katy, TX 77449</span>
                             </div>
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
-                                    <span className="material-symbols-outlined">schedule</span>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-xl mb-1 text-charcoal dark:text-white">Active Hours</h4>
-                                    <p className="text-charcoal/70 dark:text-slate-400 font-medium">Mon-Sun: 9:00 AM - 9:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="relative group min-h-[500px]">
-                        <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-forest-green transform transition group-hover:scale-[1.01] duration-500">
-                            <iframe
-                                title="Google Maps Location of 3D Massage Katy TX"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.5986897931343!2d-95.74805762335471!3d29.84700097496034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d12e8c257b47%3A0x8ac7c3a0bcb54366!2s2039%20N%20Mason%20Rd%20%23602%2C%20Katy%2C%20TX%2077449!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                                width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
+                        </li>
+                        <li className="flex items-center gap-3 md:flex-row-reverse">
+                            <span className="material-symbols-outlined text-primary">call</span>
+                            <span>(346) 218-9704</span>
+                        </li>
+                        <li className="flex items-center gap-3 md:flex-row-reverse">
+                            <span className="material-symbols-outlined text-primary">mail</span>
+                            <span>max@3dmassagekaty.com</span>
+                        </li>
+                        <li className="flex items-center gap-3 md:flex-row-reverse">
+                            <span className="material-symbols-outlined text-primary">schedule</span>
+                            <span>Mon-Sun: 9:00 AM - 9:00 PM</span>
+                        </li>
+                    </ul>
                 </div>
-            </section>
+            </div>
 
-            {/* Actual Footer */}
-            <footer className="bg-charcoal text-white/60 py-20 px-6 lg:px-20">
-                <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
-                    {/* Brand & Contact Info Column */}
-                    <div className="md:col-span-12 lg:col-span-4">
-                        <div className="flex items-center gap-3 mb-8">
-                            <img src="/E79D5A02-F42A-438F-B5EC-A88EE1D5EA4F.png" alt="3D Massage Logo" className="h-10 w-auto brightness-0 invert" />
-                        </div>
-                        <p className="text-sm leading-relaxed mb-8 max-w-sm">
-                            Premium evidence-based clinical massage therapy serving the Katy, TX community with targeted care for chronic pain and physical rehabilitation.
-                        </p>
-                        <ul className="space-y-4 text-sm font-medium mb-8">
-                            <li className="flex items-start gap-3">
-                                <span className="material-symbols-outlined text-primary">location_on</span>
-                                <div>
-                                    <span className="block mb-1 text-white font-bold">Mason Road:</span>
-                                    <span className="block mb-3">2039 N. Mason RD Suite 602<br />Katy, TX 77449</span>
-                                    <span className="block mb-1 text-white font-bold">Commercial Center:</span>
-                                    <span className="block mb-2">2643 Commercial Center Blvd B340<br />Katy, TX 77494</span>
-                                </div>
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">call</span>
-                                <span>(346) 218-9704</span>
-                            </li>
-                            <li className="flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">mail</span>
-                                <span>max@3dmassagekaty.com</span>
-                            </li>
-                        </ul>
-                        <div className="flex gap-4">
-                            <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
-                                <span className="material-symbols-outlined text-xl">social_leaderboard</span>
-                            </a>
-                            <a className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
-                                <span className="material-symbols-outlined text-xl">photo_camera</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Pages Column */}
-                    <div className="md:col-span-4 lg:col-span-3">
-                        <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Pages</h4>
-                        <ul className="space-y-4 text-sm font-medium">
-                            <li><a className="hover:text-primary transition-colors" href="/">Home</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services">Services</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/booking">Booking</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Services Column */}
-                    <div className="md:col-span-8 lg:col-span-5">
-                        <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-xs">Clinical Services</h4>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm font-medium">
-                            <li><a className="hover:text-primary transition-colors" href="/services#manual-lymphatic-drainage">Manual Lymphatic Drainage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#medical-massage">Medical Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#russian-sports-massage">Russian Sports Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#trigger-point-therapy">Trigger Point Therapy</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#deep-tissue-massage">Deep Tissue Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#swedish-relaxation-massage">Swedish Relaxation Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#reflexology">Reflexology</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#hot-stones-massage">Hot Stones Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#prenatal-massage">Prenatal Massage</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#craniosacral-therapy">Craniosacral Therapy</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#shiatsu">Shiatsu</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#assisted-clinical-stretching">Assisted Clinical Stretching</a></li>
-                            <li><a className="hover:text-primary transition-colors" href="/services#cupping-therapy">Cupping Therapy</a></li>
-                        </ul>
-                    </div>
+            <div className="max-w-[1440px] mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs relative z-10">
+                <p>© 2026 3D Massage. All Rights Reserved. Not medical advice.</p>
+                <div className="flex gap-6 mt-4 md:mt-0 font-medium">
+                    <a className="hover:text-white" href="#">Privacy Policy</a>
+                    <a className="hover:text-white" href="#">Patient Consent</a>
                 </div>
-                <div className="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs">
-                    <p>© 2026 3D Massage. All Rights Reserved. Not medical advice.</p>
-                    <div className="flex gap-6 mt-4 md:mt-0 font-medium">
-                        <a className="hover:text-white" href="#">Privacy Policy</a>
-                        <a className="hover:text-white" href="#">Patient Consent</a>
-                    </div>
-                </div>
-            </footer>
-        </>
+            </div>
+        </footer>
     );
 };
 
