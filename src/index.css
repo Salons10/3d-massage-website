@@ -5,14 +5,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #404F3D;
+  --color-primary: #283044;
   /* Deep Teal/Green accent */
-  --color-slate-blue: #404F3D;
-  /* Deep Pine */
+  --color-secondary: #78A1BB;
+  /* Soft Blue */
+  --color-slate-blue: #283044;
+  /* Deep Blue */
   --color-warm-sand: #D9CDBF;
   /* Beige/Sand from towels/light wood */
-  --color-forest-green: #314a29;
-  /* Darkest Green */
+  --color-forest-green: #1A1F2C;
+  /* Dark Navy for contrast */
   --color-charcoal: #1E1E1E;
   /* Soft Black */
   --color-background-light: #F7F5F0;
@@ -90,9 +92,9 @@ h3,
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #404F3D;
+  --primary: #283044;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #78A1BB;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -124,9 +126,9 @@ h3,
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #404F3D;
+  --primary: #283044;
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: #78A1BB;
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);

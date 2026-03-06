@@ -1,462 +1,217 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button5 } from './components/ui/button-5';
+import { WIX_BOOKING_URL } from './lib/wixClient';
 
-const API_KEY = 'cal_live_51722273ddda25a1bb2bf6358627251f';
-const EVENT_TYPE_ID = '4912726'; // Base event type, assuming it returns 30min or flexible slots
+// ──────────────────────────────────────────
+//  Service data (mirrored from ServicesPage)
+// ──────────────────────────────────────────
+const ALL_SERVICES = [
+    { id: 10, name: "Manual Lymphatic Drainage", shortDesc: "Gentle therapy to reduce swelling and support recovery.", duration: "1 hr – 1 hr 30 min", startPrice: 130, icon: "water_drop" },
+    { id: 6, name: "Medical Massage", shortDesc: "Focused treatment for specific medical conditions.", duration: "1 hr – 2 hr", startPrice: 120, icon: "medical_services" },
+    { id: 4, name: "Russian Sports Massage", shortDesc: "Built for athletes — warmup, recovery, injury prevention.", duration: "1 hr – 2 hr", startPrice: 110, icon: "fitness_center" },
+    { id: 1, name: "Trigger Point Therapy", shortDesc: "Focused pressure on tight muscle knots causing pain.", duration: "1 hr – 2 hr", startPrice: 110, icon: "pin_drop" },
+    { id: 2, name: "Deep Tissue Massage", shortDesc: "Slow, deep pressure to relieve severe tension.", duration: "1 hr – 2 hr", startPrice: 110, icon: "layers" },
+    { id: 3, name: "Swedish Relaxation Massage", shortDesc: "Classic full-body relaxation and stress relief.", duration: "1 hr – 2 hr", startPrice: 110, icon: "spa" },
+    { id: 5, name: "Reflexology", shortDesc: "Targeted foot and hand pressure for whole-body balance.", duration: "1 hr – 1 hr 30 min", startPrice: 110, icon: "do_not_step" },
+    { id: 7, name: "Hot Stones Massage", shortDesc: "Warm basalt stones melt away deep muscle tension.", duration: "1 hr – 2 hr", startPrice: 130, icon: "whatshot" },
+    { id: 8, name: "Prenatal Massage", shortDesc: "Supportive therapy for expecting mothers.", duration: "1 hr – 2 hr", startPrice: 130, icon: "pregnant_woman" },
+    { id: 9, name: "Craniosacral Therapy", shortDesc: "Gentle technique for head, spine, and nervous system.", duration: "1 hr – 2 hr", startPrice: 130, icon: "psychology" },
+    { id: 11, name: "Shiatsu", shortDesc: "Japanese pressure-point therapy for anxiety and tension.", duration: "1 hr – 1 hr 30 min", startPrice: 130, icon: "touch_app" },
+    { id: 12, name: "Assisted Clinical Stretching", shortDesc: "Professional stretching for flexibility and injury prevention.", duration: "1 hr – 1 hr 30 min", startPrice: 130, icon: "accessibility_new" },
+    { id: 13, name: "Cupping Therapy", shortDesc: "Suction therapy to improve circulation and reduce inflammation.", duration: "1 hr – 2 hr", startPrice: 130, icon: "circle" },
+];
 
+// ──────────────────────────────────────────
+//  Booking Gateway Component
+// ──────────────────────────────────────────
 const BookingPage = () => {
     const navigate = useNavigate();
-    const [bookingDetails, setBookingDetails] = useState(null);
-    const [enhancements, setEnhancements] = useState({
-        aromatherapy: false,
-        topical: false,
-        hotTowel: false
-    });
+    const [selectedService, setSelectedService] = useState(null);
+    const [isReady, setIsReady] = useState(false);
 
-    const [isSuccess, setIsSuccess] = useState(false);
-    const [groupedSlots, setGroupedSlots] = useState({});
-    const [selectedSlot, setSelectedSlot] = useState(null);
-    const [loadingSlots, setLoadingSlots] = useState(false);
-
-    const [formData, setFormData] = useState({ name: '', email: '', notes: '', location: 'Mason Road', selectedService: '' });
-    const [isBooking, setIsBooking] = useState(false);
-    const [showModal, setShowModal] = useState(false);
-
+    // Check if we arrived from a service card click
     useEffect(() => {
         const stored = localStorage.getItem('pendingBooking');
-        let initialDetails;
         if (stored) {
-            initialDetails = JSON.parse(stored);
-            setBookingDetails(initialDetails);
-            setFormData(prev => ({ ...prev, selectedService: initialDetails.serviceName }));
-        } else {
-            initialDetails = {
-                serviceId: 1,
-                serviceName: "Advanced Clinical Assessment",
-                duration: "1 hr",
-                price: 110
-            };
-            setBookingDetails(initialDetails);
-            setFormData(prev => ({ ...prev, selectedService: initialDetails.serviceName }));
+            const data = JSON.parse(stored);
+            const match = ALL_SERVICES.find(s => s.name === data.serviceName);
+            if (match) setSelectedService(match.id);
+            localStorage.removeItem('pendingBooking');
         }
-
-        fetchSlots(initialDetails.duration);
+        // Small delay for entrance animation
+        const t = setTimeout(() => setIsReady(true), 100);
+        return () => clearTimeout(t);
     }, []);
 
-    const parseDurationToMinutes = (durationStr) => {
-        let mins = 0;
-        if (durationStr.includes('hr')) {
-            const hrMatch = durationStr.match(/(\d+)\s*hr/);
-            if (hrMatch) mins += parseInt(hrMatch[1]) * 60;
+    const handleBookOnWix = () => {
+        if (WIX_BOOKING_URL && WIX_BOOKING_URL !== 'YOUR_WIX_BOOKING_PAGE_URL_HERE') {
+            window.open(WIX_BOOKING_URL, '_blank', 'noopener,noreferrer');
+        } else {
+            // Fallback: construct a likely Wix booking URL from the siteId
+            // User should replace the placeholder in wixClient.js
+            alert('Booking URL not configured yet. Please contact us to schedule your appointment.');
         }
-        if (durationStr.includes('min')) {
-            const minMatch = durationStr.match(/(\d+)\s*min/);
-            if (minMatch) mins += parseInt(minMatch[1]);
-        }
-        return mins || 60; // Default to 60 if parsing fails
     };
-
-    const fetchSlots = async (durationStr) => {
-        setLoadingSlots(true);
-        try {
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            const inSevenDays = new Date(today);
-            inSevenDays.setDate(inSevenDays.getDate() + 7);
-
-            const durationMins = parseDurationToMinutes(durationStr);
-            const slotsNeeded = Math.ceil(durationMins / 30); // assuming 30min blocks from API
-
-            const response = await fetch(`https://api.cal.com/v1/slots?apiKey=${API_KEY}&eventTypeId=${EVENT_TYPE_ID}&startTime=${tomorrow.toISOString()}&endTime=${inSevenDays.toISOString()}`);
-            const data = await response.json();
-
-            const slotsMap = data.slots || {};
-            // Flatten all available slot times into timestamps
-            const allTimes = [];
-            for (const [date, slots] of Object.entries(slotsMap)) {
-                slots.forEach(slot => {
-                    allTimes.push(new Date(slot.time).getTime());
-                });
-            }
-            allTimes.sort((a, b) => a - b);
-
-            // Filter times: must have consecutive 30min slots to fulfill duration, and within 9am-9pm
-            const validTimes = [];
-            allTimes.forEach(time => {
-                const dateObj = new Date(time);
-                const hours = dateObj.getHours();
-                // Check 9 AM to 9 PM (endTime must be <= 21:00)
-                const endHour = hours + (durationMins / 60);
-                if (hours >= 9 && endHour <= 21) {
-                    let hasEnough = true;
-                    for (let i = 1; i < slotsNeeded; i++) {
-                        if (!allTimes.includes(time + (i * 30 * 60 * 1000))) {
-                            hasEnough = false;
-                            break;
-                        }
-                    }
-                    if (hasEnough) validTimes.push(dateObj);
-                }
-            });
-
-            // Group by date for the calendar view
-            const grouped = {};
-            validTimes.forEach(dateObj => {
-                const dayStr = dateObj.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
-                if (!grouped[dayStr]) grouped[dayStr] = [];
-                grouped[dayStr].push(dateObj);
-            });
-
-            setGroupedSlots(grouped);
-        } catch (error) {
-            console.error("Error fetching slots:", error);
-            // Fallback mock grouping
-            const t = new Date();
-            t.setDate(t.getDate() + 1);
-            const mock = {};
-            const dStr = t.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
-            t.setHours(9, 0, 0, 0);
-            mock[dStr] = [new Date(t)];
-            t.setHours(10, 30, 0, 0);
-            mock[dStr].push(new Date(t));
-            setGroupedSlots(mock);
-        }
-        setLoadingSlots(false);
-    };
-
-    const handleServiceChange = (e) => {
-        const newService = e.target.value;
-        setFormData({ ...formData, selectedService: newService });
-        // Simplified duration mapping based on prior logic (assuming 1 hr if not specified in detail here)
-        // In a real scenario, this would look up the specific duration from the services array
-        const mockDuration = newService.includes("Drainage") ? "1 hr 30 min" : "1 hr";
-        setBookingDetails(prev => ({ ...prev, serviceName: newService, duration: mockDuration }));
-        setSelectedSlot(null);
-        fetchSlots(mockDuration);
-    };
-
-    const handleEnhancementToggle = (key) => {
-        setEnhancements(prev => ({ ...prev, [key]: !prev[key] }));
-    };
-
-    const handleInitialSubmit = (e) => {
-        e.preventDefault();
-        setShowModal(true);
-    };
-
-    const finalizeBooking = async () => {
-        setShowModal(false);
-        setIsBooking(true);
-        try {
-            const response = await fetch(`https://api.cal.com/v1/bookings?apiKey=${API_KEY}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    eventTypeId: parseInt(EVENT_TYPE_ID),
-                    start: selectedSlot.toISOString(),
-                    responses: {
-                        name: formData.name,
-                        email: formData.email,
-                        notes: `Location: ${formData.location} | Service: ${formData.selectedService} | Enhancements: ${Object.values(enhancements).some(v => v) ? 'Yes' : 'No'} | Client Notes: ${formData.notes}`
-                    },
-                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-                })
-            });
-            const data = await response.json();
-            console.log("Booking created:", data);
-            setIsSuccess(true);
-        } catch (err) {
-            console.error(err);
-            setIsSuccess(true); // Proceed anyway for UI demonstration
-        }
-        setIsBooking(false);
-    };
-
-    if (!bookingDetails) return null;
 
     return (
-        <main className="min-h-screen bg-background-light pt-32 pb-12 px-6 lg:px-20 font-sans relative overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -ml-[300px] -mt-[300px] pointer-events-none"></div>
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-500/5 rounded-full blur-[100px] -mr-[250px] -mb-[250px] pointer-events-none"></div>
+        <main className="min-h-screen bg-background-light pt-28 pb-16 px-4 lg:px-20 font-sans relative overflow-hidden">
+            {/* Background blobs */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[120px] -ml-[250px] -mt-[250px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[100px] -mr-[200px] -mb-[200px] pointer-events-none" />
 
-            <div className="max-w-4xl mx-auto relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                    <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-charcoal/60 hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider">
-                        <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-                        Back
-                    </button>
-                    <div className="h-4 w-[1px] bg-charcoal/20"></div>
-                    <span className="text-charcoal/60 text-sm font-medium">Direct Clinic Booking</span>
+            <div className={`max-w-4xl mx-auto relative z-10 transition-all duration-700 ${isReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+
+                {/* Back nav */}
+                <button
+                    onClick={() => navigate(-1)}
+                    className="flex items-center gap-2 text-charcoal/50 hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider mb-8 group"
+                >
+                    <span className="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+                    Back
+                </button>
+
+                {/* Hero Header */}
+                <div className="bg-primary rounded-2xl px-8 py-10 mb-8 shadow-2xl shadow-primary/20 relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l40 40M0 40l40-40' stroke='%23fff' stroke-width='1' fill='none'/%3E%3C/svg%3E\")" }} />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
+
+                    <div className="relative z-10 text-center max-w-2xl mx-auto">
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-5">
+                            <span className="material-symbols-outlined text-3xl text-white">calendar_month</span>
+                        </div>
+                        <h1 className="text-3xl lg:text-4xl font-extrabold text-white mb-3 tracking-tight">Book Your Session</h1>
+                        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto">
+                            Choose a service below, then you'll be taken to our secure scheduling page to pick a date and time that works for you.
+                        </p>
+                    </div>
                 </div>
 
-                {!isSuccess ? (
-                    <form onSubmit={handleInitialSubmit} className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-charcoal/5 relative overflow-hidden space-y-12">
-                        <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full -mr-24 -mt-24 blur-xl pointer-events-none"></div>
+                {/* Service Selection Grid */}
+                <div className="mb-8">
+                    <h2 className="text-sm font-extrabold text-charcoal uppercase tracking-widest mb-5 flex items-center gap-2.5">
+                        <span className="w-7 h-7 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <span className="material-symbols-outlined text-primary text-[16px]">clinical_notes</span>
+                        </span>
+                        Select Your Treatment
+                    </h2>
 
-                        <div className="text-center md:text-left mb-4">
-                            <h2 className="text-3xl font-extrabold text-charcoal mb-2">Schedule Treatment</h2>
-                            <p className="text-charcoal/70 text-base max-w-2xl">Complete the details below to secure your clinical bodywork appointment. Total duration: <span className="font-bold text-primary">{bookingDetails.duration}</span>.</p>
-                        </div>
-
-                        {/* Step 1: Patient Information */}
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-charcoal border-b border-charcoal/10 pb-3 flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">person</span>
-                                Patient Information
-                            </h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest font-bold text-charcoal/60 mb-2">Full Name</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-background-light border border-charcoal/20 text-charcoal rounded-xl px-4 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                                        placeholder="Jane Doe"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest font-bold text-charcoal/60 mb-2">Email Address</label>
-                                    <input
-                                        type="email"
-                                        required
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-background-light border border-charcoal/20 text-charcoal rounded-xl px-4 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                                        placeholder="jane@example.com"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Step 2: Treatment & Location */}
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-charcoal border-b border-charcoal/10 pb-3 flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">clinical_notes</span>
-                                Treatment Details
-                            </h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest font-bold text-charcoal/60 mb-2">Clinic Location</label>
-                                    <div className="relative">
-                                        <select
-                                            required
-                                            value={formData.location}
-                                            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                                            className="w-full bg-background-light border border-charcoal/20 text-charcoal rounded-xl px-4 py-3.5 pr-10 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer"
-                                        >
-                                            <option value="Mason Road">Mason Rd Studio (Katy, TX)</option>
-                                            <option value="Commercial Center">Commercial Center Blvd (Katy, TX)</option>
-                                        </select>
-                                        <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-charcoal/50 pointer-events-none">expand_more</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {ALL_SERVICES.map((service) => {
+                            const isSelected = selectedService === service.id;
+                            return (
+                                <button
+                                    key={service.id}
+                                    onClick={() => setSelectedService(isSelected ? null : service.id)}
+                                    className={`group text-left p-4 rounded-xl border-2 transition-all duration-200 ${isSelected
+                                            ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10 scale-[1.02]'
+                                            : 'border-charcoal/8 bg-white hover:border-primary/30 hover:shadow-md hover:bg-primary/[0.02]'
+                                        }`}
+                                >
+                                    <div className="flex items-start gap-3">
+                                        <div className={`w-10 h-10 shrink-0 rounded-xl flex items-center justify-center transition-colors ${isSelected ? 'bg-primary text-white' : 'bg-primary/8 text-primary'
+                                            }`}>
+                                            <span className="material-symbols-outlined text-[20px]">{service.icon}</span>
+                                        </div>
+                                        <div className="flex-grow min-w-0">
+                                            <p className={`font-bold text-sm leading-tight mb-1 transition-colors ${isSelected ? 'text-primary' : 'text-charcoal'
+                                                }`}>
+                                                {service.name}
+                                            </p>
+                                            <p className="text-charcoal/50 text-xs leading-relaxed line-clamp-2">{service.shortDesc}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <label className="block text-xs uppercase tracking-widest font-bold text-charcoal/60 mb-2">Selected Treatment</label>
-                                    <div className="relative">
-                                        <select
-                                            required
-                                            value={formData.selectedService}
-                                            onChange={handleServiceChange}
-                                            className="w-full bg-background-light border border-charcoal/20 text-charcoal rounded-xl px-4 py-3.5 pr-10 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer"
-                                        >
-                                            <option value="Manual Lymphatic Drainage">Manual Lymphatic Drainage</option>
-                                            <option value="Medical Massage">Medical Massage</option>
-                                            <option value="Russian Sports Massage">Russian Sports Massage</option>
-                                            <option value="Trigger Point Therapy">Trigger Point Therapy</option>
-                                            <option value="Deep Tissue Massage">Deep Tissue Massage</option>
-                                            <option value="Swedish Relaxation Massage">Swedish Relaxation Massage</option>
-                                            <option value="Reflexology">Reflexology</option>
-                                            <option value="Hot Stones Massage">Hot Stones Massage</option>
-                                            <option value="Prenatal Massage">Prenatal Massage</option>
-                                            <option value="Craniosacral Therapy">Craniosacral Therapy</option>
-                                            <option value="Shiatsu">Shiatsu</option>
-                                            <option value="Assisted Clinical Stretching">Assisted Clinical Stretching</option>
-                                            <option value="Cupping Therapy">Cupping Therapy</option>
-                                            <option value="Advanced Clinical Assessment">Advanced Clinical Assessment</option>
-                                        </select>
-                                        <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-charcoal/50 pointer-events-none">expand_more</span>
+                                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-charcoal/6">
+                                        <div className="flex items-center gap-1.5 text-charcoal/40">
+                                            <span className="material-symbols-outlined text-[14px]">schedule</span>
+                                            <span className="text-[11px] font-bold">{service.duration}</span>
+                                        </div>
+                                        <span className={`text-sm font-extrabold transition-colors ${isSelected ? 'text-primary' : 'text-charcoal'}`}>
+                                            from ${service.startPrice}
+                                        </span>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label className="block text-xs uppercase tracking-widest font-bold text-charcoal/60 mb-2">Clinical Notes / Current Symptoms</label>
-                                <textarea
-                                    value={formData.notes}
-                                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                                    className="w-full bg-background-light border border-charcoal/20 text-charcoal rounded-xl px-4 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all h-28 resize-none"
-                                    placeholder="Please describe any areas of tension, previous injuries, or specific concerns..."
+                                    {isSelected && (
+                                        <div className="flex items-center gap-1.5 mt-3 text-primary">
+                                            <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                                            <span className="text-xs font-bold">Selected</span>
+                                        </div>
+                                    )}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* Book Now CTA */}
+                <div className="bg-white rounded-2xl shadow-xl border border-charcoal/5 p-6 lg:p-8">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div className="text-center sm:text-left">
+                            {selectedService ? (
+                                <>
+                                    <p className="text-[11px] uppercase tracking-widest font-bold text-charcoal/40 mb-1">Ready to Book</p>
+                                    <p className="text-lg font-extrabold text-charcoal">
+                                        {ALL_SERVICES.find(s => s.id === selectedService)?.name}
+                                    </p>
+                                    <p className="text-sm text-charcoal/50 mt-0.5">
+                                        You'll pick your exact date, time, and duration on the booking page.
+                                    </p>
+                                </>
+                            ) : (
+                                <>
+                                    <p className="text-[11px] uppercase tracking-widest font-bold text-charcoal/40 mb-1">No Selection Required</p>
+                                    <p className="text-lg font-extrabold text-charcoal">
+                                        Browse All Available Times
+                                    </p>
+                                    <p className="text-sm text-charcoal/50 mt-0.5">
+                                        Click below to see the full schedule and choose any service.
+                                    </p>
+                                </>
+                            )}
+                        </div>
+                        <div className="w-full sm:w-auto shrink-0">
+                            <div onClick={handleBookOnWix} className="cursor-pointer">
+                                <Button5
+                                    text="Continue to Scheduling →"
+                                    theme="light"
+                                    className="h-[56px] min-w-[260px] text-base"
                                 />
                             </div>
                         </div>
-
-                        {/* Step 3: Calendar / Table View */}
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-charcoal border-b border-charcoal/10 pb-3 flex items-center gap-3">
-                                <span className="material-symbols-outlined text-primary">calendar_month</span>
-                                Select Date & Time
-                            </h3>
-
-                            {loadingSlots ? (
-                                <div className="flex justify-center items-center gap-3 text-primary py-12">
-                                    <span className="material-symbols-outlined animate-spin text-3xl">sync</span>
-                                    <span className="text-sm font-bold tracking-wide uppercase">Connecting to Clinic Schedule...</span>
-                                </div>
-                            ) : Object.keys(groupedSlots).length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {Object.entries(groupedSlots).map(([dateStr, slots]) => (
-                                        <div key={dateStr} className="bg-background-light border border-charcoal/10 rounded-xl overflow-hidden">
-                                            <div className="bg-charcoal/5 px-4 py-3 border-b border-charcoal/10 text-center font-bold text-charcoal">
-                                                {dateStr}
-                                            </div>
-                                            <div className="p-4 grid grid-cols-2 gap-2 max-h-48 overflow-y-auto">
-                                                {slots.map((slot, idx) => {
-                                                    const isSelected = selectedSlot === slot;
-                                                    return (
-                                                        <button
-                                                            type="button"
-                                                            key={idx}
-                                                            onClick={() => setSelectedSlot(slot)}
-                                                            className={`py-2 px-2 rounded-lg text-xs font-bold border transition-all duration-200 text-center ${isSelected
-                                                                ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-105'
-                                                                : 'bg-white border-charcoal/10 text-charcoal hover:border-primary/50 text-charcoal/80'
-                                                                }`}
-                                                        >
-                                                            {slot.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}
-                                                        </button>
-                                                    );
-                                                })}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="text-center py-12 bg-charcoal/5 rounded-xl border border-charcoal/10 text-charcoal/70">
-                                    No consecutive time slots available for the selected duration ({bookingDetails.duration}). Please select a different service or check back later.
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Submit Row */}
-                        <div className="pt-8 border-t border-charcoal/10 flex flex-col md:flex-row justify-between items-center gap-6">
-                            <p className="text-xs text-charcoal/50 leading-relaxed italic max-w-sm text-center md:text-left">
-                                Note: This is strictly a booking page. Payment will be collected in person at the clinic. Enhancements can be selected in the next step.
-                            </p>
-                            <button
-                                type="submit"
-                                disabled={isBooking || !selectedSlot}
-                                className="w-full md:w-auto flex justify-center items-center gap-2 bg-primary text-white px-10 py-4 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-forest-green transition-all shadow-xl shadow-primary/20 hover:-translate-y-0.5"
-                            >
-                                Continue <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-                            </button>
-                        </div>
-                    </form>
-                ) : (
-                    <div className="bg-forest-green text-white rounded-2xl p-12 shadow-2xl relative overflow-hidden text-center max-w-2xl mx-auto">
-                        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGw0MCA0ME0wIDQwbDQwLTQwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==')" }}></div>
-                        <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-6">
-                            <span className="material-symbols-outlined text-4xl text-white">check_circle</span>
-                        </div>
-                        <h2 className="text-3xl font-extrabold mb-4">Treatment Confirmed</h2>
-                        <p className="text-white/80 text-lg mb-8 max-w-md mx-auto leading-relaxed">
-                            Your clinical bodywork session is scheduled. A confirmation email has been dispatched via Cal.com.
-                        </p>
-                        <button
-                            onClick={() => navigate('/')}
-                            className="bg-white text-forest-green px-8 py-3.5 rounded-xl font-bold hover:bg-background-light shadow-xl transition-all"
-                        >
-                            Return to Home
-                        </button>
                     </div>
-                )}
-            </div>
 
-            {/* Enhancements Modal */}
-            {showModal && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-charcoal/60 backdrop-blur-sm" onClick={() => setShowModal(false)}></div>
-                    <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full relative z-10 overflow-hidden flex flex-col max-h-[90vh]">
-                        <div className="p-8 border-b border-charcoal/10 flex justify-between items-center bg-background-light">
-                            <div>
-                                <h2 className="text-2xl font-extrabold text-charcoal">Add Clinical Enhancements</h2>
-                                <p className="text-charcoal/60 text-sm mt-1">Optional add-ons for your scheduled session.</p>
+                    {/* Trust Indicators */}
+                    <div className="flex flex-wrap items-center justify-center gap-6 mt-6 pt-5 border-t border-charcoal/6">
+                        {[
+                            { icon: 'lock', label: 'Secure Booking' },
+                            { icon: 'event_available', label: 'Instant Confirmation' },
+                            { icon: 'notifications_active', label: 'Appointment Reminders' },
+                            { icon: 'credit_card_off', label: 'Pay In Person' },
+                        ].map(({ icon, label }) => (
+                            <div key={label} className="flex items-center gap-1.5 text-charcoal/40">
+                                <span className="material-symbols-outlined text-[16px]">{icon}</span>
+                                <span className="text-[11px] font-bold uppercase tracking-wide">{label}</span>
                             </div>
-                            <button onClick={() => setShowModal(false)} className="w-10 h-10 bg-charcoal/5 rounded-full flex items-center justify-center text-charcoal/60 hover:text-charcoal hover:bg-charcoal/10 transition-colors">
-                                <span className="material-symbols-outlined">close</span>
-                            </button>
-                        </div>
-
-                        <div className="p-8 overflow-y-auto space-y-4 bg-white flex-grow">
-                            <div
-                                onClick={() => handleEnhancementToggle('aromatherapy')}
-                                className={`flex items-start md:items-center justify-between p-5 rounded-xl border cursor-pointer transition-all duration-300 ${enhancements.aromatherapy ? 'border-primary bg-primary/5 shadow-sm' : 'border-charcoal/10 hover:border-primary/30'}`}>
-                                <div className="flex items-start md:items-center gap-4 flex-col md:flex-row">
-                                    <div className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center border transition-colors ${enhancements.aromatherapy ? 'bg-primary border-primary text-white' : 'border-charcoal/30 bg-background-light'}`}>
-                                        {enhancements.aromatherapy && <span className="material-symbols-outlined text-[20px]">check</span>}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-charcoal text-base">Aromatherapy</h4>
-                                        <p className="text-sm text-charcoal/60 mt-1 max-w-[400px]">Utilizes concentrated essential oils to induce profound parasympathetic relaxation or boost mental clarity.</p>
-                                    </div>
-                                </div>
-                                <span className="font-bold text-primary mt-2 md:mt-0 text-lg">+$20</span>
-                            </div>
-
-                            <div
-                                onClick={() => handleEnhancementToggle('topical')}
-                                className={`flex items-start md:items-center justify-between p-5 rounded-xl border cursor-pointer transition-all duration-300 ${enhancements.topical ? 'border-primary bg-primary/5 shadow-sm' : 'border-charcoal/10 hover:border-primary/30'}`}>
-                                <div className="flex items-start md:items-center gap-4 flex-col md:flex-row">
-                                    <div className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center border transition-colors ${enhancements.topical ? 'bg-primary border-primary text-white' : 'border-charcoal/30 bg-background-light'}`}>
-                                        {enhancements.topical && <span className="material-symbols-outlined text-[20px]">check</span>}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-charcoal text-base">Topical Analgesics</h4>
-                                        <p className="text-sm text-charcoal/60 mt-1 max-w-[400px]">Medical-grade pain relief gels applied to sharply reduce localized muscle/joint inflammation.</p>
-                                    </div>
-                                </div>
-                                <span className="font-bold text-primary mt-2 md:mt-0 text-lg">+$20</span>
-                            </div>
-
-                            <div
-                                onClick={() => handleEnhancementToggle('hotTowel')}
-                                className={`flex items-start md:items-center justify-between p-5 rounded-xl border cursor-pointer transition-all duration-300 ${enhancements.hotTowel ? 'border-primary bg-primary/5 shadow-sm' : 'border-charcoal/10 hover:border-primary/30'}`}>
-                                <div className="flex items-start md:items-center gap-4 flex-col md:flex-row">
-                                    <div className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center border transition-colors ${enhancements.hotTowel ? 'bg-primary border-primary text-white' : 'border-charcoal/30 bg-background-light'}`}>
-                                        {enhancements.hotTowel && <span className="material-symbols-outlined text-[20px]">check</span>}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-charcoal text-base">Hot Towel Therapy</h4>
-                                        <p className="text-sm text-charcoal/60 mt-1 max-w-[400px]">Damp heated towels placed strategically to vasodilate capillaries and melt fascial tension.</p>
-                                    </div>
-                                </div>
-                                <span className="font-bold text-charcoal mt-2 md:mt-0 text-sm tracking-widest uppercase">Included</span>
-                            </div>
-                        </div>
-
-                        <div className="p-8 border-t border-charcoal/10 bg-background-light flex flex-col md:flex-row justify-between items-center gap-4">
-                            <button onClick={() => setShowModal(false)} className="text-charcoal/60 font-bold hover:text-charcoal transition-colors">
-                                Skip Enhancements
-                            </button>
-                            <div className="w-full md:w-1/2 min-w-[280px]">
-                                {isBooking ? (
-                                    <button disabled className="w-full md:w-auto flex justify-center items-center gap-2 bg-charcoal/10 text-charcoal/50 px-10 py-[18px] rounded-[100px] font-bold cursor-not-allowed">
-                                        <span className="material-symbols-outlined animate-spin text-[18px]">sync</span> Confirming...
-                                    </button>
-                                ) : (
-                                    <div onClick={finalizeBooking} className="h-[60px] w-full">
-                                        <Button5 text="Finalize Booking" theme="light" className="h-full" />
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
-            )}
 
+                {/* Location Info */}
+                <div className="mt-6 bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-center gap-4">
+                    <span className="material-symbols-outlined text-primary text-[24px] shrink-0">location_on</span>
+                    <div>
+                        <p className="font-bold text-sm text-charcoal">3D Massage — Katy, TX</p>
+                        <p className="text-charcoal/50 text-xs mt-0.5">2039 N. Mason Rd Suite 602, Katy, TX 77449</p>
+                    </div>
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=2039+N+Mason+Rd+Suite+602+Katy+TX+77449"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-auto text-primary text-xs font-bold hover:underline shrink-0 hidden sm:block"
+                    >
+                        Get Directions →
+                    </a>
+                </div>
+            </div>
         </main>
     );
 };

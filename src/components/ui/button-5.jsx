@@ -7,9 +7,11 @@ export const Button5 = ({
   className,
   asLink = false,
   to = "#",
+  href, // external URL — opens in new tab
   theme = "dark", // "dark" (bg-white/text-charcoal) or "light" (bg-primary/text-white)
   size = "default", // "default" or "sm"
-  hasWhiteOutline = false
+  hasWhiteOutline = false,
+  onClick,
 }) => {
   const isDark = theme === "dark";
 
@@ -46,16 +48,24 @@ export const Button5 = ({
 
   const baseClasses = `group relative flex items-center justify-center ${paddingClass} w-full max-w-5xl mx-auto ${heightClass} border border-transparent rounded-[100px] overflow-hidden text-center ${textSizeClass} cursor-pointer shadow-2xl active:scale-[0.98] transition-all duration-300 ${baseBg}`;
 
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cn(baseClasses, className)} onClick={onClick}>
+        <ButtonContent />
+      </a>
+    );
+  }
+
   if (asLink) {
     return (
-      <Link to={to} className={cn(baseClasses, className)}>
+      <Link to={to} className={cn(baseClasses, className)} onClick={onClick}>
         <ButtonContent />
       </Link>
     );
   }
 
   return (
-    <button className={cn(baseClasses, className)}>
+    <button className={cn(baseClasses, className)} onClick={onClick}>
       <ButtonContent />
     </button>
   );

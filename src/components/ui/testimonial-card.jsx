@@ -34,8 +34,8 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
         className="relative rounded-[32px] overflow-hidden w-full h-full min-h-[300px]"
         style={{
           transformStyle: "preserve-3d",
-          backgroundColor: "#2c3b26", // Updated to a deep green fallback
-          boxShadow: "0 -10px 100px 10px rgba(64, 79, 61, 0.15), 0 0 10px 0 rgba(0, 0, 0, 0.5)",
+          backgroundColor: "#283044",
+          boxShadow: "0 -10px 100px 10px rgba(40, 48, 68, 0.15), 0 0 10px 0 rgba(0, 0, 0, 0.5)",
         }}
         initial={{ y: 0 }}
         animate={{
@@ -56,7 +56,7 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
         {/* Base Gradient: Changed from black to Primary Green fading to deep forest green */}
         <motion.div
           className="absolute inset-0 z-0"
-          style={{ background: "linear-gradient(180deg, #404F3D 0%, #1b2417 90%)" }}
+          style={{ background: "linear-gradient(180deg, #283044 0%, #78A1BB 90%)" }}
           animate={{ z: -1 }}
         />
 
@@ -73,10 +73,9 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
           className="absolute inset-0 z-20"
           style={{
             background: `
-              radial-gradient(ellipse at bottom right, rgba(64, 79, 61, 0.95) 0%, rgba(49, 74, 41, 0) 75%),
-              radial-gradient(ellipse at bottom left, rgba(49, 74, 41, 0.95) 0%, rgba(27, 36, 23, 0) 75%)
+              radial-gradient(ellipse at bottom right, rgba(40, 48, 68, 0.95) 0%, rgba(26, 31, 44, 0) 75%),
+              radial-gradient(ellipse at bottom left, rgba(26, 31, 44, 0.95) 0%, rgba(26, 31, 44, 0) 75%)
             `,
-            filter: "blur(40px)",
           }}
           animate={{
             opacity: isHovered ? 1 : 0.85,
@@ -89,8 +88,7 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
         <motion.div
           className="absolute inset-0 z-21"
           style={{
-            background: `radial-gradient(circle at bottom center, rgba(64, 79, 61, 1) 0%, rgba(27, 36, 23, 0) 70%)`,
-            filter: "blur(45px)",
+            background: `radial-gradient(circle at bottom center, rgba(40, 48, 68, 1) 0%, rgba(26, 31, 44, 0) 70%)`,
           }}
           animate={{
             opacity: isHovered ? 0.95 : 0.85,
@@ -108,8 +106,8 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
           }}
           animate={{
             boxShadow: isHovered
-              ? "0 0 20px 4px rgba(64, 79, 61, 0.9), 0 0 30px 6px rgba(49, 74, 41, 0.7)"
-              : "0 0 15px 3px rgba(64, 79, 61, 0.8), 0 0 25px 5px rgba(49, 74, 41, 0.6)",
+              ? "0 0 20px 4px rgba(40, 48, 68, 0.9), 0 0 30px 6px rgba(26, 31, 44, 0.7)"
+              : "0 0 15px 3px rgba(40, 48, 68, 0.8), 0 0 25px 5px rgba(26, 31, 44, 0.6)",
             opacity: isHovered ? 1 : 0.9,
             z: 0.5
           }}
@@ -119,7 +117,7 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
         {/* Card content */}
         <motion.div
           className="relative flex flex-col h-full p-6 z-40 justify-between"
-          style={{ 
+          style={{
             transform: "translateZ(20px)", /* Gives it a static 3D pop without blurring */
             WebkitFontSmoothing: "antialiased" /* Forces sharper font rendering */
           }}
@@ -135,7 +133,7 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
           <div className="flex-1 flex flex-col items-center justify-center text-center">
             <motion.p
               className="text-lg font-medium text-white italic mb-6 leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{
                 opacity: 0.9,
                 y: 0,
@@ -147,7 +145,7 @@ export const TestimonialCard = ({ title, description, icon, linkTo = "#" }) => {
 
             <motion.h3
               className="text-base font-bold text-[#D9CDBF] uppercase tracking-widest mt-auto mb-2"
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{
                 opacity: 1,
                 y: 0,

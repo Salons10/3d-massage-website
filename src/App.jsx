@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { Home as HomeIcon, Calendar as CalendarIcon, Phone as PhoneIcon } from 'lucide-react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import Services from './Services';
@@ -8,15 +7,18 @@ import Therapist from './Therapist';
 import Testimonials from './Testimonials';
 import ValueProps from './ValueProps';
 import Booking from './Booking';
+import Enhancements from './Enhancements';
 import Footer from './Footer';
 import ServicesPage from './ServicesPage';
-import BookingPage from './BookingPage';
-import ScrollToTop from './ScrollToTop';// Home component housing the original landing page vertically stacked
+import ScrollToTop from './ScrollToTop';
+
+// Home component — new section order per user request
 const Home = () => (
   <>
     <Hero />
-    <Services />
     <Therapist />
+    <Services />
+    <Enhancements />
     <Testimonials />
     <ValueProps />
     <Booking />
@@ -31,7 +33,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/booking" element={<BookingPage />} />
       </Routes>
       <Footer />
     </div>

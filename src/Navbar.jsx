@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button5 } from './components/ui/button-5';
 import { motion, AnimatePresence } from 'framer-motion';
+import { WIX_BOOKING_URL } from './lib/wixClient';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +44,7 @@ const Navbar = () => {
                 {/* Right Action Icons/Buttons Layout */}
                 <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
                     <div className="hidden sm:block">
-                        <Button5 asLink to="/booking" theme={isTransparent ? "dark" : "light"} size="sm" text="Book Now" className="!w-auto !shadow-none hover:-translate-y-0.5" />
+                        <Button5 href={WIX_BOOKING_URL} theme={isTransparent ? "dark" : "light"} size="sm" text="Book Now" className="!w-auto !shadow-none hover:-translate-y-0.5" />
                     </div>
 
                     <a href="tel:346-218-9704" className={`p-3 rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm' : 'bg-charcoal/5 text-charcoal hover:bg-charcoal/10'}`}>
@@ -87,7 +88,7 @@ const Navbar = () => {
                             Services
                         </Link>
                         <div className="w-full px-6 pt-4 border-t border-charcoal/5 flex justify-center sm:hidden">
-                            <Button5 asLink to="/booking" onClick={() => setIsMobileMenuOpen(false)} theme="light" size="default" text="Book Now" className="w-full max-w-[200px]" />
+                            <Button5 href={WIX_BOOKING_URL} onClick={() => setIsMobileMenuOpen(false)} theme="light" size="default" text="Book Now" className="w-full max-w-[200px]" />
                         </div>
                     </motion.div>
                 )}

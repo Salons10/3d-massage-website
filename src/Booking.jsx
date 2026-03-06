@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Button5 } from './components/ui/button-5';
+import { WIX_BOOKING_URL } from './lib/wixClient';
+
 const Booking = () => {
     return (
         <section className="py-24 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50 relative overflow-hidden">
@@ -10,7 +11,7 @@ const Booking = () => {
 
             <div className="max-w-[1440px] mx-auto bg-charcoal dark:bg-slate-900 rounded-[2rem] p-12 lg:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl border border-white/10 dark:border-white/5">
                 {/* Internal container background effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-forest-green/80 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-primary from-forest-green/80 to-transparent pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -mr-48 -mt-48 blur-3xl pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full -ml-48 -mb-48 blur-3xl pointer-events-none"></div>
 
@@ -19,14 +20,14 @@ const Booking = () => {
                         Ready for Relief?
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-                        Feel Weightless. Restore Function. Reduce Pain.
+                        Less Pain. More Movement. Better Days.
                     </h2>
                     <p className="text-white/70 text-lg mb-0 leading-relaxed font-light">
-                        Experience premier clinical bodywork. Let us help you break the cycle of chronic tension and restore your structural health with targeted, evidence-based therapy.
+                        Stop living with tension and pain. Book a massage therapy session in Katy, TX and start feeling like yourself again.
                     </p>
                 </div>
                 <div className="relative z-10 shrink-0 w-full lg:w-auto mt-8 lg:mt-0">
-                    <Button5 asLink to="/booking" theme="dark" text="Schedule Therapy Session" className="max-w-md mx-auto" hasWhiteOutline={true} />
+                    <Button5 href={WIX_BOOKING_URL} theme="dark" text="Book Your Session" className="max-w-md mx-auto" hasWhiteOutline={true} />
                 </div>
             </div>
         </section>

@@ -1,5 +1,7 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
+import { Button5 } from './components/ui/button-5';
+import { WIX_BOOKING_URL } from './lib/wixClient';
 
 const ServicesPage = () => {
 
@@ -7,166 +9,106 @@ const ServicesPage = () => {
         {
             id: 10,
             name: "Manual Lymphatic Drainage",
-            description: "A highly specialized, light-touch protocol designed to stimulate the lymphatic system, critically important for reducing post-surgical edema and boosting immunity.",
-            purpose: "To reduce swelling by mechanically moving lymphatic fluid away from tissues and toward lymph nodes for immediate reabsorption.",
+            description: "Gentle, light-touch therapy that helps reduce swelling after surgery, supports your immune system, and speeds up recovery by guiding fluid back to where it needs to go.",
+            purpose: "To reduce swelling by moving lymphatic fluid away from tissues and toward lymph nodes for reabsorption.",
             procedure: "Using gentle, slow, skin-stretching strokes to pump lymph toward regional nodes.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 195 }
-            ],
-            imageUrl: "/mld_clinical.png"
+            imageUrl: "/lymphatic.png"
         },
         {
             id: 6,
             name: "Medical Massage",
-            description: "Outcome-based therapy prescribed to resolve specific clinically diagnosed pathologies, aid post-surgical recovery, and manage chronic disease symptoms.",
-            purpose: "To ease discomfort related to a specific medical diagnosis and/or to improve post-surgical outcomes.",
+            description: "Focused treatment designed to address specific medical conditions — whether you're recovering from surgery, managing chronic pain, or dealing with an injury.",
+            purpose: "To ease discomfort related to a specific medical condition and to improve post-surgical outcomes.",
             procedure: "Customized depending on specific clinical goals and patient contraindications.",
-            pricingOptions: [
-                { duration: "1 hr", price: 120 },
-                { duration: "1 hr 30 min", price: 180 },
-                { duration: "2 hr", price: 240 }
-            ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/medical.png"
         },
         {
             id: 4,
             name: "Russian Sports Massage",
-            description: "Athletic optimization therapy designed for pre-event preparation or post-event recovery, enhancing biomechanical performance and reducing injury risk.",
+            description: "Built for athletes and active people — whether you need to warm up before a game or recover after one. Improves performance and reduces injury risk.",
             purpose: "To help prepare for and recover from sports/exercise by warming up and loosening tense muscles.",
             procedure: "Range-of-motion techniques, stretching, vigorous strokes, kneading friction, and percussion.",
-            pricingOptions: [
-                { duration: "1 hr", price: 110 },
-                { duration: "1 hr 30 min", price: 165 },
-                { duration: "2 hr", price: 220 }
-            ],
-            imageUrl: "/russian_sports_male.png"
+            imageUrl: "/russian_sports.png"
         },
         {
             id: 1,
             name: "Trigger Point Therapy",
-            description: "A highly targeted approach to releasing contracted muscle fibers (knots) that cause referral pain patterns and restricted mobility.",
+            description: "Focused pressure on tight muscle knots that cause pain in other areas of the body. Great for headaches, neck pain, and limited range of motion.",
             purpose: "To release myofascial trigger points that cause referral patterns of pain, sensitivity, weakness, numbness, and tingling.",
             procedure: "Hold-and-release techniques concentrated on precise areas along bands of muscle fibers containing trigger points.",
-            pricingOptions: [
-                { duration: "1 hr", price: 110 },
-                { duration: "1 hr 30 min", price: 165 },
-                { duration: "2 hr", price: 220 }
-            ],
-            imageUrl: "/service_triggerpoint.png"
+            imageUrl: "/trigger_point_therapy.png"
         },
         {
             id: 2,
             name: "Deep Tissue Massage",
-            description: "Intensive manipulation of deeper muscular and fascial layers to break down adhesions, alleviate severe tension, and restore structural balance.",
-            purpose: "To alleviate pain and stiffness in muscles, tendons, and joints by lengthening and loosening tight myofascia and muscles, including deeper layers.",
+            description: "Slow, focused pressure that reaches the deeper layers of muscle to break up tightness, relieve severe tension, and restore balance to your body.",
+            purpose: "To relieve pain and stiffness in muscles, tendons, and joints by working through the deeper layers of tissue.",
             procedure: "Slow, penetrating strokes and deep compression.",
-            pricingOptions: [
-                { duration: "1 hr", price: 110 },
-                { duration: "1 hr 30 min", price: 165 },
-                { duration: "2 hr", price: 220 }
-            ],
             imageUrl: "/deep_tissue.png"
         },
         {
             id: 3,
             name: "Swedish Relaxation Massage",
-            description: "A foundational circulatory therapy designed to drastically reduce systemic stress hormones while increasing blood oxygenation and lymphatic flow.",
+            description: "Classic full-body massage that improves circulation, melts away stress, and leaves you feeling completely relaxed and recharged.",
             purpose: "To improve blood and lymph circulation, relieve tension, and induce relaxation.",
             procedure: "Gliding strokes, kneading, friction, and percussion.",
-            pricingOptions: [
-                { duration: "1 hr", price: 110 },
-                { duration: "1 hr 30 min", price: 165 },
-                { duration: "2 hr", price: 220 }
-            ],
-            imageUrl: "/swedish_massage.png"
+            imageUrl: "/swedish.png"
         },
         {
             id: 5,
             name: "Reflexology",
-            description: "Neurological stimulation of specific micro-zones on the extremities that correspond to major physiological systems and internal organs.",
+            description: "Targeted pressure on specific points in the feet, hands, and ears that connect to different parts of the body — helping restore balance and relieve tension throughout.",
             purpose: "To restore internal systems (circulatory, respiratory, endocrine, immune, and neuropeptide) to optimal functioning and to relax the central nervous system.",
             procedure: "Applying gentle pressure to specific points (on the feet, hands, and ears) that correspond to different parts of the body.",
-            pricingOptions: [
-                { duration: "1 hr", price: 110 },
-                { duration: "1 hr 30 min", price: 165 }
-            ],
-            imageUrl: "/hero_clinical.png"
+            imageUrl: "/reflexology.png"
         },
         {
             id: 7,
             name: "Hot Stones Massage",
-            description: "Thermal conductive therapy integrating heated basalt stones to profoundly sedate the central nervous system and melt hypertonic muscles.",
+            description: "Warm basalt stones placed on key areas of the body to deeply relax tight muscles, calm the nervous system, and melt away tension.",
             purpose: "To reduce severe muscular tension through gentle and smooth application of therapeutic heat.",
             procedure: "Placing of hot stones on strategic areas (sacral region, spine, palms) and gliding hot stones over broad areas.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 185 },
-                { duration: "2 hr", price: 240 }
-            ],
             imageUrl: "/hot_stones.png"
         },
         {
             id: 8,
             name: "Prenatal Massage",
-            description: "Specialized biomechanical support for expecting mothers to alleviate structural dysfunctions, reduce edema, and optimize pelvic alignment for labor.",
+            description: "Safe, supportive massage designed for expecting mothers — helps relieve pregnancy-related aches and pains, reduce swelling, and prepare your body for labor.",
             purpose: "To reduce aches and pains in muscles and joints during pregnancy and to improve labor outcomes.",
             procedure: "Gliding strokes, kneading, and friction while client is in supportive supine and side-lying positions.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 195 },
-                { duration: "2 hr", price: 260 }
-            ],
-            imageUrl: "/prenatal_male.png"
+            imageUrl: "/prenatal.png"
         },
         {
             id: 9,
             name: "Craniosacral Therapy",
-            description: "A gentle, non-invasive manipulation of the synarthrodial joints of the cranium to regulate the flow of cerebrospinal fluid and relieve dural tube tension.",
+            description: "A very gentle, hands-on technique that releases tension in the head, spine, and lower back. Great for headaches, stress, and overall nervous system relief.",
             purpose: "To gently release tension-causing compression in the bones of the skull, spine, and sacrum.",
             procedure: "Very gentle manipulation of membranes and fluid along the craniosacral pathway while client remains fully clothed.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 195 },
-                { duration: "2 hr", price: 260 }
-            ],
-            imageUrl: "/craniosacral_therapy.png"
+            imageUrl: "/craniosacral.png"
         },
         {
             id: 11,
             name: "Shiatsu",
-            description: "Traditional Japanese acupressure methodology utilized to correct somatic energy imbalances, improve autonomic nervous system function, and alleviate joint pain.",
+            description: "Traditional Japanese pressure-point therapy that reduces anxiety, eases muscle tension and joint pain, and improves circulation — all while you stay fully clothed.",
             purpose: "To reduce anxiety, muscle tension, joint pain, digestive disorders, and fatigue by improving blood and lymph circulation.",
             procedure: "Compressing, stretching, or tapping specific pressure points along vital energy pathways while client remains fully clothed.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 195 }
-            ],
-            imageUrl: "/shiatsu_male.png"
+            imageUrl: "/shiatsu.png"
         },
         {
             id: 12,
             name: "Assisted Clinical Stretching",
-            description: "PNF (Proprioceptive Neuromuscular Facilitation) and active-isolated protocols to dramatically increase capsular mobility and correct postural deficits.",
+            description: "Professional assisted stretching that dramatically increases your flexibility and range of motion — perfect for improving posture and preventing injuries.",
             purpose: "To increase range of motion and flexibility, improve blood and lymph circulation, and significantly reduce risk of biomechanical injuries.",
             procedure: "Carefully regulated assisted stretching (client is passive but aware and informed) while client remains fully clothed.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "1 hr 30 min", price: 195 }
-            ],
-            imageUrl: "/assisted_stretching_male.png"
+            imageUrl: "/stretching.png"
         },
         {
             id: 13,
             name: "Cupping Therapy",
-            description: "Myofascial decompression technique using negative pressure to aggressively lift connective tissue, separate adhered fascial layers, and draw stagnant blood to the surface.",
-            purpose: "To release systemic toxins, dramatically improve localized blood/lymph circulation, reduce focal inflammation, and stimulate natural fibroblastic healing.",
+            description: "Suction cups lift and separate tight connective tissue, improving blood flow and reducing inflammation. Great for stubborn tension and muscle recovery.",
+            purpose: "To improve circulation, reduce inflammation, and stimulate natural healing by drawing blood flow to targeted areas.",
             procedure: "Using suction cups on strategically placed areas to lift skin, underlying fascia, and draw up fluids.",
-            pricingOptions: [
-                { duration: "1 hr", price: 130 },
-                { duration: "2 hr", price: 240 }
-            ],
-            imageUrl: "/service_cupping.png"
+            imageUrl: "/cupping.png"
         }
     ];
 
@@ -179,23 +121,18 @@ const ServicesPage = () => {
             {/* Page Header */}
             <section className="max-w-[1440px] mx-auto px-6 lg:px-20 mb-16 text-center relative z-10">
                 <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4">
-                    Clinical Directory
+                    All Services
                 </span>
                 <h1 className="text-4xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-6">
-                    Evidence-Based <span className="text-primary italic">Therapies</span>
+                    Massage <span className="text-secondary italic">Services</span>
                 </h1>
-                <div className="max-w-3xl mx-auto rounded-2xl p-8 bg-[#404F3D] shadow-md relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mt-16 blur-2xl"></div>
-                    <p className="text-lg text-white leading-relaxed font-medium relative z-10">
-                        Select from our comprehensive range of <strong className="text-white font-bold uppercase tracking-wide text-sm mx-1">strictly treatment-based</strong> therapies.
-                        Each protocol is uniquely adapted to your specific biomechanical needs and clinical goals to ensure optimal functional restoration.
-                        We do not offer standard relaxation spa massages — our focus is entirely on clinical outcomes and pain relief.
-                    </p>
-                </div>
+                <p className="text-lg text-charcoal/70 max-w-2xl mx-auto leading-relaxed">
+                    From chronic pain and post-surgery recovery to sports performance — we offer hands-on therapies that deliver real, lasting results. Select any service below to learn more.
+                </p>
             </section>
 
             {/* Services Grid */}
-            <section className="max-w-[1440px] mx-auto px-6 lg:px-20 mb-24">
+            <section className="max-w-[1440px] mx-auto px-6 lg:px-20 mb-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                     {services.map((service) => (
                         <div key={service.id} id={service.name.toLowerCase().replace(/\s+/g, '-')}>
@@ -205,55 +142,16 @@ const ServicesPage = () => {
                 </div>
             </section>
 
-            {/* Enhancements Section */}
+            {/* Book Now CTA */}
             <section className="max-w-[1440px] mx-auto px-6 lg:px-20">
-                <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-charcoal/5">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-charcoal dark:text-white mb-4">Clinical Enhancements</h2>
-                        <p className="text-charcoal/70 dark:text-slate-300 text-sm">
-                            Note: Enhancements cannot be booked online but can be requested via text, email, or in person prior to your treatment.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                        {/* Enhancement 1 */}
-                        <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
-                                <h4 className="font-bold text-lg text-charcoal dark:text-white">Aromatherapy</h4>
-                                <span className="text-primary font-bold">+$20</span>
-                            </div>
-                            <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
-                                Utilizes concentrated essential oils mixed with organic jojoba carrier oil to directly impact the limbic system. Induces profound parasympathetic relaxation or boosts mental clarity.
-                            </p>
-                        </div>
-
-                        {/* Enhancement 2 */}
-                        <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
-                                <h4 className="font-bold text-lg text-charcoal dark:text-white">Topical Analgesics</h4>
-                                <span className="text-primary font-bold">+$20</span>
-                            </div>
-                            <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
-                                Medical-grade pain relief gels (Biofreeze, Wood Lock, Prossage) applied to sharply reduce localized muscle/joint inflammation and dramatically increase local circulation.
-                            </p>
-                        </div>
-
-                        {/* Enhancement 3 */}
-                        <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
-                                <h4 className="font-bold text-lg text-charcoal dark:text-white">Hot Towel Therapy</h4>
-                                <span className="text-primary font-bold">Complimentary</span>
-                            </div>
-                            <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
-                                Damp, highly heated towels placed strategically on the dermis to instantly vasodilate capillaries, promote deeper circulation, and melt superficial fascial tension.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="bg-[#404F3D] rounded-lg p-6 text-center shadow-md">
-                        <p className="text-white font-medium">
-                            <strong className="text-white font-bold">Frequency Bonus Plan:</strong> If you visit us more than once within a 30-day period, you receive a free clinical enhancement of your choice.
-                        </p>
+                <div className="bg-primary rounded-2xl p-8 lg:p-12 text-center shadow-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
+                    <h2 className="text-3xl font-bold text-white mb-3 relative z-10">Ready to Book?</h2>
+                    <p className="text-white/70 text-base mb-8 max-w-lg mx-auto relative z-10">
+                        Choose your service and pick a time that works for you.
+                    </p>
+                    <div className="relative z-10 max-w-[300px] mx-auto">
+                        <Button5 href={WIX_BOOKING_URL} theme="dark" text="Book Now" />
                     </div>
                 </div>
             </section>

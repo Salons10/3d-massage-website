@@ -4,15 +4,15 @@ import { Button5 } from './components/ui/button-5';
 
 const Services = () => {
     return (
-        <section className="pt-12 pb-24 px-6 lg:px-20 max-w-[1440px] mx-auto bg-transparent relative z-20">
+        <section className="pt-12 pb-8 px-6 lg:px-20 max-w-[1440px] mx-auto bg-transparent relative z-20">
             <div className="text-center mb-16 relative z-10">
                 <span className="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-4">
-                    Core Therapies
+                    Our Specialties
                 </span>
-                <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-charcoal dark:text-white tracking-tight">Targeted Clinical Therapies</h2>
+                <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-charcoal dark:text-white tracking-tight">Therapeutic Massage in Katy, TX</h2>
                 <div className="w-24 h-1.5 bg-primary mx-auto rounded-full mt-6 mb-6"></div>
                 <p className="text-lg text-charcoal/70 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-4">
-                    We utilize evidence-based treatments to resolve chronic pain, aid post-surgical recovery, and optimize athletic biomechanics.
+                    From chronic pain and post-surgery recovery to sports performance — we offer hands-on therapies that deliver real, lasting results.
                 </p>
                 <p className="text-sm font-bold text-primary uppercase tracking-wider">                </p>
             </div>
@@ -21,7 +21,7 @@ const Services = () => {
                 {/* MLD */}
                 <GradientCard
                     title="Manual Lymphatic Drainage"
-                    description="A highly specialized, light-touch protocol designed to stimulate the lymphatic system, critically important for reducing post-surgical edema and boosting immunity."
+                    description="Gentle, light-touch therapy that reduces swelling after surgery, boosts your immune system, and speeds up recovery by moving fluid where it needs to go."
                     icon={<span className="material-symbols-outlined text-3xl">water_drop</span>}
                     linkTo="/services"
                 />
@@ -29,7 +29,7 @@ const Services = () => {
                 {/* Medical */}
                 <GradientCard
                     title="Medical Massage"
-                    description="Outcome-based therapy prescribed to resolve specific clinically diagnosed pathologies, aid post-surgical recovery, and manage chronic disease symptoms."
+                    description="Focused treatment for specific medical conditions — helping you recover faster after surgery, manage chronic pain, and get back to feeling like yourself."
                     icon={<span className="material-symbols-outlined text-3xl">medical_services</span>}
                     linkTo="/services"
                 />
@@ -37,7 +37,7 @@ const Services = () => {
                 {/* Russian Sports */}
                 <GradientCard
                     title="Russian Sports Massage"
-                    description="Athletic optimization therapy designed for pre-event preparation or post-event recovery, enhancing biomechanical performance and reducing injury risk."
+                    description="Built for athletes and active people. Whether you're prepping for a game or recovering from one, this therapy improves performance and prevents injuries."
                     icon={<span className="material-symbols-outlined text-3xl">fitness_center</span>}
                     linkTo="/services"
                 />

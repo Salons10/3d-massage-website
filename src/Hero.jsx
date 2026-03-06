@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ShapeDivider from './ShapeDivider';
 import { Button5 } from './components/ui/button-5';
+import { WIX_BOOKING_URL } from './lib/wixClient';
 
 const Hero = () => {
     return (
@@ -18,17 +18,17 @@ const Hero = () => {
             <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-20 w-full mb-12 text-center flex flex-col items-center">
                 <div className="max-w-4xl flex flex-col items-center">
                     <p className="text-base lg:text-lg text-white/90 mb-4 max-w-2xl font-medium leading-relaxed drop-shadow-sm mx-auto">
-                        We don't believe in one-size-fits-all treatments. Every patient receives targeted, thoughtful care — built on their specific biomechanical needs and clinical goals.
+                        No cookie-cutter treatments. Every session is built around your specific pain, your body, and your goals — real massage therapy in Katy, TX that actually gets results.
                     </p>
-                    <h1 className="text-6xl md:text-8xl lg:text-[130px] leading-[0.9] text-white mb-10 tracking-tighter font-serif">
-                        Targeted. <br className="md:hidden" /><span className="italic font-serif">Relief.</span>
+                    <h1 className="text-6xl md:text-8xl lg:text-[130px] leading-[0.9] mb-10 tracking-tighter font-serif">
+                        <span className="text-white">Targeted.</span> <br className="md:hidden" />
+                        <span className="italic font-serif text-[#78A1BB]">Relief.</span>
                     </h1>
 
                     <div className="w-full max-w-5xl">
                         <Button5
                             text="Book Appointment"
-                            asLink={true}
-                            to="/booking"
+                            href={WIX_BOOKING_URL}
                         />
                     </div>
                 </div>
