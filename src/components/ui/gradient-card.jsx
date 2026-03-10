@@ -19,7 +19,7 @@ export const GradientCard = ({ title, description, imageUrl, linkTo = "#" }) => 
       </div>
 
       <div className="p-6 flex-grow flex flex-col bg-background-light">
-        <p className="text-charcoal/80 text-sm italic leading-relaxed font-medium mb-6">
+        <p className="text-charcoal/80 text-sm leading-relaxed font-medium mb-6">
           {description}
         </p>
 
