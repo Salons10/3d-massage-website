@@ -25,7 +25,7 @@ const ValueProps = () => {
     ];
 
     return (
-        <section className="py-24 px-6 lg:px-20 max-w-[1440px] mx-auto">
+        <section className="pt-24 pb-12 px-6 lg:px-20 max-w-[1440px] mx-auto">
             <div className="mb-12 text-center">
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-primary dark:text-white">How It Works</h2>
             </div>
@@ -37,9 +37,7 @@ const ValueProps = () => {
                     let borderRadiusClass = "rounded-t-md"; // Default small radius
                     if (index === 0) {
                         borderRadiusClass = "rounded-tl-[4rem] rounded-tr-md"; // First card
-                    } else if (index === cards.length - 1) {
-                        borderRadiusClass = "rounded-tr-[4rem] rounded-tl-md"; // Last card
-                    }
+                    } 
 
                     return (
                         <div
@@ -54,7 +52,8 @@ const ValueProps = () => {
                             </div>
 
                             {/* The Top Right Fold/Ribbon detail */}
-                            <div className="absolute right-[-2.5px] top-[32px] h-[30px] w-[90px] md:w-[120px] pointer-events-none flex items-center">
+                            {/* CHANGED: right-[-2.5px] is now right-0 to keep it inside the border */}
+                            <div className="absolute right-0 top-[32px] h-[30px] w-[90px] md:w-[120px] pointer-events-none flex items-center">
                                 {/* The left slanted angle */}
                                 <div
                                     className="h-full w-[15px] bg-accent"
@@ -62,13 +61,13 @@ const ValueProps = () => {
                                 ></div>
                                 {/* The main body of the ribbon */}
                                 <div
-                                    className={`h-full flex-grow bg-accent -ml-[1px] ${index === cards.length - 1 ? 'rounded-tr-[1.25rem]' : ''}`}
+                                    className="h-full flex-grow bg-accent -ml-[1px]"
                                 ></div>
                             </div>
 
-                            {/* Card Body - Added pt-12 so the title clears the absolute icon/ribbon row */}
+                            {/* Card Body - Added min-height to the H3 so single-line titles match the height of two-line titles */}
                             <div className="px-8 pb-4 pt-12 mx-auto text-center flex flex-col items-center min-h-[220px] md:min-h-[260px]">
-                                <h3 className="font-extrabold text-[#121513] dark:text-white text-xl md:text-2xl mb-4">
+                                <h3 className="font-extrabold text-[#121513] dark:text-white text-xl md:text-2xl mb-4 min-h-[3.5rem] md:min-h-[4rem] flex items-center justify-center">
                                     {card.title}
                                 </h3>
                                 <p className="text-[#303830] dark:text-slate-300 text-base font-medium leading-relaxed">
@@ -84,10 +83,8 @@ const ValueProps = () => {
                                 {/* Right ribbon fold shadow */}
                                 <div className="absolute w-[20px] aspect-square bottom-full right-0 -z-10 bg-primary-mid origin-bottom-right -rotate-45"></div>
 
-                                {/* The Circular Label Badge - Inset curves are now removed */}
+                                {/* The Circular Label Badge */}
                                 <span className="relative block w-[80px] md:w-[96px] aspect-square bg-white dark:bg-slate-800 rounded-full border-[8px] md:border-[10px] border-primary -translate-y-1/2 grid place-items-center font-black text-2xl md:text-3xl text-primary dark:text-white leading-none z-10 shadow-sm transition-transform duration-300 group-hover:scale-110">
-                                    {/* The div elements for the inset curves are gone */}
-
                                     0{index + 1}
                                 </span>
                             </div>
