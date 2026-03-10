@@ -9,7 +9,7 @@ import { WIX_BOOKING_URL } from './lib/wixClient';
 const ALL_SERVICES = [
     { id: 10, name: "Manual Lymphatic Drainage", shortDesc: "Gentle therapy to reduce swelling and support recovery.", duration: "1 hr – 1 hr 30 min", startPrice: 130, icon: "water_drop" },
     { id: 6, name: "Medical Massage", shortDesc: "Focused treatment for specific medical conditions.", duration: "1 hr – 2 hr", startPrice: 120, icon: "medical_services" },
-    { id: 4, name: "Russian Sports Massage", shortDesc: "Built for athletes — warmup, recovery, injury prevention.", duration: "1 hr – 2 hr", startPrice: 110, icon: "fitness_center" },
+    { id: 4, name: "Russian Sports Massage", shortDesc: "Built for athletes: warmup, recovery, and injury prevention.", duration: "1 hr – 2 hr", startPrice: 110, icon: "fitness_center" },
     { id: 1, name: "Trigger Point Therapy", shortDesc: "Focused pressure on tight muscle knots causing pain.", duration: "1 hr – 2 hr", startPrice: 110, icon: "pin_drop" },
     { id: 2, name: "Deep Tissue Massage", shortDesc: "Slow, deep pressure to relieve severe tension.", duration: "1 hr – 2 hr", startPrice: 110, icon: "layers" },
     { id: 3, name: "Swedish Relaxation Massage", shortDesc: "Classic full-body relaxation and stress relief.", duration: "1 hr – 2 hr", startPrice: 110, icon: "spa" },
@@ -104,8 +104,8 @@ const BookingPage = () => {
                                     key={service.id}
                                     onClick={() => setSelectedService(isSelected ? null : service.id)}
                                     className={`group text-left p-4 rounded-xl border-2 transition-all duration-200 ${isSelected
-                                            ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10 scale-[1.02]'
-                                            : 'border-charcoal/8 bg-white hover:border-primary/30 hover:shadow-md hover:bg-primary/[0.02]'
+                                        ? 'border-primary bg-primary/5 shadow-lg shadow-primary/10 scale-[1.02]'
+                                        : 'border-charcoal/8 bg-white hover:border-primary/30 hover:shadow-md hover:bg-primary/[0.02]'
                                         }`}
                                 >
                                     <div className="flex items-start gap-3">
@@ -199,7 +199,7 @@ const BookingPage = () => {
                 <div className="mt-6 bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-center gap-4">
                     <span className="material-symbols-outlined text-primary text-[24px] shrink-0">location_on</span>
                     <div>
-                        <p className="font-bold text-sm text-charcoal">3D Massage — Katy, TX</p>
+                        <p className="font-bold text-sm text-charcoal">3D Massage in Katy, TX</p>
                         <p className="text-charcoal/50 text-xs mt-0.5">2039 N. Mason Rd Suite 602, Katy, TX 77449</p>
                     </div>
                     <a

@@ -9,20 +9,24 @@ const Hero = () => {
             <div className="absolute inset-0 z-0">
                 <div
                     className="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-1000 scale-105"
-                    style={{ backgroundImage: "url('/Whisk_f6c5a7f3066ca2797f74ed53f546a7badr_upscayl_3x_ultramix-balanced-4x.png')" }}
+                    style={{ backgroundImage: "url('/New_Hero_image.png')" }}
                 ></div>
                 <div className="absolute inset-0 bg-black/30"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20"></div>
             </div>
 
             <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-20 w-full mb-12 text-center flex flex-col items-center">
-                <div className="max-w-4xl flex flex-col items-center">
-                    <p className="text-base lg:text-lg text-white/90 mb-4 max-w-2xl font-medium leading-relaxed drop-shadow-sm mx-auto">
-                        No cookie-cutter treatments. Every session is built around your specific pain, your body, and your goals — real massage therapy in Katy, TX that actually gets results.
+                <div className="max-w-6xl w-full flex flex-col items-center">
+                    <p className="hero-lead text-base lg:text-lg text-white/90 mb-4 max-w-2xl font-medium leading-relaxed drop-shadow-sm mx-auto">
+                        No generic sessions. At 3D Massage in Katy, TX, every treatment is built around your specific pain, your body, and your recovery goals, ensuring you actually feel the difference.
                     </p>
-                    <h1 className="text-6xl md:text-8xl lg:text-[130px] leading-[0.9] mb-10 tracking-tighter font-serif">
-                        <span className="text-white">Targeted.</span> <br className="md:hidden" />
-                        <span className="italic font-serif text-[#78A1BB]">Relief.</span>
+
+                    {/* 1. Added 'flex flex-row justify-center items-center gap-3 md:gap-5' to lock them on one line.
+                        2. Scaled the max text size down to 110px so it physically fits inside the container.
+                        3. Added 'w-full' to ensure the heading spans the container.
+                    */}
+                    <h1 className="hero-title flex flex-row justify-center items-center gap-3 md:gap-5 w-full text-5xl md:text-7xl lg:text-[90px] xl:text-[110px] leading-[0.9] mb-10 tracking-tighter whitespace-nowrap">
+                        <span className="text-white">Targeted.</span>
+                        <span className="text-[#94B4C1]">Relief.</span>
                     </h1>
 
                     <div className="w-full max-w-5xl">
@@ -38,7 +42,7 @@ const Hero = () => {
             <div className="absolute bottom-[-2px] left-0 w-full z-20 leading-[0]">
                 <ShapeDivider
                     position="bottom"
-                    color="#F7F5F0"
+                    color="#FFFFFF"
                     className="rotate-180"
                 />
             </div>

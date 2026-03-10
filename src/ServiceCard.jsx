@@ -17,7 +17,7 @@ const ServiceCard = ({ id, name, description, purpose, procedure, imageUrl }) =>
             </div>
 
             <div className="p-5 flex-grow flex flex-col bg-background-light">
-                <p className="text-charcoal/80 text-sm italic leading-relaxed font-medium mb-4">
+                <p className="text-charcoal/80 text-sm leading-relaxed font-medium mb-4">
                     {description}
                 </p>
 
@@ -25,7 +25,7 @@ const ServiceCard = ({ id, name, description, purpose, procedure, imageUrl }) =>
                 <div className="mt-auto border border-charcoal/10 rounded-xl overflow-hidden bg-white">
                     <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="w-full flex items-center justify-between p-3 text-left hover:bg-charcoal/5 transition-colors"
+                        className="w-full flex items-center justify-between p-3 text-left hover:bg-secondary transition-colors"
                     >
                         <span className="font-bold text-sm text-charcoal dark:text-white uppercase tracking-wider">Clinical Details</span>
                         <span className={`material-symbols-outlined transition-transform duration-300 ${isExpanded ? 'rotate-180 text-primary' : 'text-charcoal/50 dark:text-white/50'}`}>
@@ -35,11 +35,11 @@ const ServiceCard = ({ id, name, description, purpose, procedure, imageUrl }) =>
                     {isExpanded && (
                         <div className="p-3 border-t border-charcoal/10 space-y-3 bg-charcoal/5">
                             <div>
-                                <span className="text-xs uppercase tracking-widest font-bold text-primary block mb-2">Clinical Purpose</span>
+                                <span className="text-xs uppercase tracking-widest font-bold text-accent block mb-2">Clinical Purpose</span>
                                 <p className="text-charcoal/80 dark:text-slate-300 text-sm leading-relaxed">{purpose}</p>
                             </div>
                             <div>
-                                <span className="text-xs uppercase tracking-widest font-bold text-primary block mb-2">Methodology</span>
+                                <span className="text-xs uppercase tracking-widest font-bold text-accent block mb-2">Methodology</span>
                                 <p className="text-charcoal/80 dark:text-slate-300 text-sm leading-relaxed">{procedure}</p>
                             </div>
                         </div>

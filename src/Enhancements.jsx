@@ -16,10 +16,10 @@ const Enhancements = () => {
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
                             <h4 className="font-bold text-lg text-charcoal dark:text-white">Aromatherapy</h4>
-                            <span className="text-primary font-bold">+$20</span>
+                            <span className="text-accent font-bold">+$20</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
-                            Essential oils blended with organic jojoba oil — choose a calming blend to melt stress or an energizing one to sharpen focus.
+                            Essential oils blended with organic jojoba oil. Choose a calming blend to melt stress or an energizing one to sharpen focus.
                         </p>
                     </div>
 
@@ -27,7 +27,7 @@ const Enhancements = () => {
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
                             <h4 className="font-bold text-lg text-charcoal dark:text-white">Topical Analgesics</h4>
-                            <span className="text-primary font-bold">+$20</span>
+                            <span className="text-accent font-bold">+$20</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
                             Professional-grade pain relief gels (Biofreeze, Wood Lock, Prossage) applied to sore muscles and joints to reduce inflammation and improve circulation.
@@ -38,7 +38,7 @@ const Enhancements = () => {
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
                             <h4 className="font-bold text-lg text-charcoal dark:text-white">Hot Towel Therapy</h4>
-                            <span className="text-primary font-bold">Complimentary</span>
+                            <span className="text-accent font-bold">Complimentary</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
                             Warm, damp towels placed on tight areas to improve circulation, ease tension, and help your muscles relax more deeply during treatment.

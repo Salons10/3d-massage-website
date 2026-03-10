@@ -5,7 +5,7 @@ import { createClient, ApiKeyStrategy } from '@wix/sdk';
 const wixClient = createClient({
     modules: { items, services },
     auth: ApiKeyStrategy({
-        apiKey: 'IST.eyJraWQiOiJQb3pIX2FDMiIsImFsZyI6IlJTMjU2In0.eyJkYXRhIjoie1wiaWRcIjpcIjJmMTkxNzAxLTk0MzgtNDU5My04YTNkLTQwNDU2NmUyMmNkOFwiLFwiaWRlbnRpdHlcIjp7XCJ0eXBlXCI6XCJhcHBsaWNhdGlvblwiLFwiaWRcIjpcImI3MjBmZGExLWYyNTAtNGU4OS05YjgyLTk3N2U5YzEyNGJhZVwifSxcInRlbmFudFwiOntcInR5cGVcIjpcImFjY291bnRcIixcImlkXCI6XCIxMjQ5MWE3Mi0yYWQ5LTQwYWMtYTYzOC1hNmU1MDMzM2NjNTVcIn19IiwiaWF0IjoxNzcyODI0MDQxfQ.IW-ohAFTlpicPmrW67rl7tzoq_qdq1QXsF4WNCJWcoMu8nuvHoAuI2LdKhmuJhZwIscKxiZuZkNCcrCqptN_9uTTfByY7RQVFK9KiYujU1_bx28r4MaCr5BsSuWaGbaXve_zHztwObdZxy1QCoONHxNeXrgq9HWX7EgAfl0eK31Xv3mkJnFkgaQKsPPsz1pmMvOlR-Mw9pysQmECSu30GdsFCtE08cOhmd37Z8LQbx3StDWLEEceqcNSEuzp__72x9GDAuQL1V0l0SAKTCfBI-MXA3scQ-tByya78QoJ9zmdOQQJCMbDFV-G7ovV4H-J461Txdap5JHdttLJsREWQg',
+        apiKey: import.meta.env.VITE_WIX_API_KEY,
         siteId: 'bc74b7fb-181e-41d2-9329-a1b46a57fede',
     }),
 });

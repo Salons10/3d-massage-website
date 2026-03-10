@@ -7,18 +7,16 @@ import Therapist from './Therapist';
 import Testimonials from './Testimonials';
 import ValueProps from './ValueProps';
 import Booking from './Booking';
-import Enhancements from './Enhancements';
 import Footer from './Footer';
 import ServicesPage from './ServicesPage';
 import ScrollToTop from './ScrollToTop';
 
-// Home component — new section order per user request
+// Home component: new section order per user request
 const Home = () => (
   <>
     <Hero />
     <Therapist />
     <Services />
-    <Enhancements />
     <Testimonials />
     <ValueProps />
     <Booking />

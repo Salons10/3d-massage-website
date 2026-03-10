@@ -3,9 +3,9 @@ import { TestimonialCard } from './components/ui/testimonial-card';
 
 const Testimonials = () => {
     return (
-        <section className="py-24 bg-white dark:bg-background-dark/40">
+        <section className="py-24 bg-secondary/10 dark:bg-background-dark/40">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-20 text-center">
-                <h2 className="text-4xl font-bold mb-16">What Our Clients Say</h2>
+                <h2 className="text-4xl lg:text-5xl font-bold mb-16 px-4">What Our Clients Say</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
                     {/* Testimonial 1 */}
@@ -23,7 +23,7 @@ const Testimonials = () => {
                     {/* Testimonial 3 */}
                     <TestimonialCard
                         title="David H."
-                        description="I had chronic lower back pain for over five years. Max didn't just work on the surface — he analyzed how I move, released the deep tension, and gave me my active life back."
+                        description="I had chronic lower back pain for over five years. Max didn't just work on the surface. He analyzed how I move, released the deep tension, and gave me my active life back."
                     />
 
                 </div>
