@@ -17,7 +17,7 @@ const Hero = () => {
             <div className="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-20 w-full mb-12 text-center flex flex-col items-center">
                 <div className="max-w-6xl w-full flex flex-col items-center">
                     <p className="hero-lead text-base lg:text-lg text-white/90 mb-4 max-w-2xl font-medium leading-relaxed drop-shadow-sm mx-auto">
-                        No generic sessions. At 3D Massage in Katy, TX, every treatment is built around your specific pain, your body, and your recovery goals, ensuring you actually feel the difference.
+                        At 3D Massage in Katy, TX, every treatment is built around your specific pain, your body, and your recovery goals, ensuring you actually feel the difference.
                     </p>
 
                     {/* 1. Added 'flex flex-row justify-center items-center gap-3 md:gap-5' to lock them on one line.
@@ -25,8 +25,8 @@ const Hero = () => {
                         3. Added 'w-full' to ensure the heading spans the container.
                     */}
                     <h1 className="hero-title flex flex-row justify-center items-center gap-3 md:gap-5 w-full text-5xl md:text-7xl lg:text-[90px] xl:text-[110px] leading-[0.9] mb-10 tracking-tighter whitespace-nowrap">
-                        <span className="text-white">Targeted.</span>
-                        <span className="text-[#94B4C1]">Relief.</span>
+                        <span className="text-white">Targeted</span>
+                        <span className="text-[#94B4C1]">relief.</span>
                     </h1>
 
                     <div className="w-full max-w-5xl">

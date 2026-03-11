@@ -44,16 +44,23 @@ const Navbar = () => {
                 {/* Right Action Icons/Buttons Layout */}
                 <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
                     <div className="hidden sm:block">
-                        <Button5 href={WIX_BOOKING_URL} theme={isTransparent ? "dark" : "light"} size="sm" text="Book Now" className="!w-auto !shadow-none hover:-translate-y-0.5" />
+                        <Button5 
+                            href={WIX_BOOKING_URL} 
+                            theme={isTransparent ? "dark" : "light"} 
+                            size="sm" 
+                            text="Book Now" 
+                            className="!w-max !min-w-[140px] !h-[48px] !shadow-none hover:-translate-y-0.5" 
+                        />
                     </div>
 
-                    <a href="tel:346-218-9704" className={`p-3 rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'bg-white/10 text-charcoal hover:bg-white/20 backdrop-blur-sm' : 'bg-charcoal/5 text-charcoal hover:bg-charcoal/10'}`}>
+                    <a href="tel:346-218-9704" className={`h-[48px] px-6 rounded-full flex items-center justify-center gap-2 transition-all duration-300 ${isTransparent ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm' : 'bg-charcoal/5 text-charcoal hover:bg-charcoal/10'}`}>
                         <span className="material-symbols-outlined text-[20px]">call</span>
+                        <span className="hidden lg:block text-sm font-bold tracking-widest whitespace-nowrap">(346) 218-9704</span>
                     </a>
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className={`lg:hidden p-3 rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm' : 'text-charcoal bg-charcoal/5 hover:bg-charcoal/10'}`}
+                        className={`lg:hidden w-[48px] h-[48px] rounded-full flex items-center justify-center transition-all duration-300 ${isTransparent ? 'text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm' : 'text-charcoal bg-charcoal/5 hover:bg-charcoal/10'}`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         <span className="material-symbols-outlined text-[24px]">

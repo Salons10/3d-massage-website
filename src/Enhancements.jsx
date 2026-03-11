@@ -2,7 +2,7 @@ import React from 'react';
 
 const Enhancements = () => {
     return (
-        <section className="pt-8 pb-24 px-6 lg:px-20 max-w-[1440px] mx-auto">
+        <section className="pt-8 pb-12 px-6 lg:px-20 max-w-[1440px] mx-auto">
             <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-charcoal/5">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-charcoal dark:text-white mb-4">Add-On Enhancements</h2>

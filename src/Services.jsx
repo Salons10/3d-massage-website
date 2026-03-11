@@ -4,7 +4,7 @@ import { Button5 } from './components/ui/button-5';
 
 const Services = () => {
     return (
-        <section className="pt-12 pb-8 px-6 lg:px-20 max-w-[1440px] mx-auto bg-transparent relative z-20">
+        <section className="pt-12 pb-16 px-6 lg:px-20 max-w-[1440px] mx-auto bg-transparent relative z-20">
             <div className="text-center mb-16 relative z-10">
                 <span className="inline-block text-accent font-bold tracking-widest text-xs uppercase mb-4">
                     Our Specialties
@@ -22,7 +22,7 @@ const Services = () => {
                 <GradientCard
                     title="Manual Lymphatic Drainage"
                     description="Gentle, light-touch therapy that reduces swelling after surgery, boosts your immune system, and speeds up recovery by moving fluid where it needs to go."
-                    imageUrl="/mld_clinical.png"
+                    imageUrl="/mld_male_new2.png"
                     linkTo="/services"
                 />
 
@@ -38,7 +38,7 @@ const Services = () => {
                 <GradientCard
                     title="Russian Sports Massage"
                     description="Built for athletes and active people. Whether you're prepping for a game or recovering from one, this therapy improves performance and prevents injuries."
-                    imageUrl="/russian_sports_male.png"
+                    imageUrl="/russian_sports_male_new2.png"
                     linkTo="/services"
                 />
 

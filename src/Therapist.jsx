@@ -20,7 +20,7 @@ const Therapist = () => {
                             Real Results. Real Relief. Meet Max.
                         </h2>
                         <p className="text-lg text-charcoal/80 dark:text-slate-300 mb-6 leading-relaxed font-medium">
-                            With over 10 years of hands-on experience, Max is a licensed massage therapist in Katy, TX who goes beyond surface-level relaxation. He finds the root cause of your pain, not just where it hurts but why it hurts, and builds a plan to fix it.
+                            With over 10 years of hands-on experience, Max is a licensed massage therapist in Katy, TX who goes beyond surface-level relaxation. He finds the root cause of your pain, not just where it hurts but why it hurts, and builds a clinical plan to fix it.
                         </p>
                         <p className="text-lg text-charcoal/80 dark:text-slate-300 mb-10 leading-relaxed font-medium">
                             Using targeted deep tissue work, trigger point therapy, and fascial release techniques, Max creates custom treatment plans that reduce chronic pain, speed up recovery after surgery, and help your body move the way it should.

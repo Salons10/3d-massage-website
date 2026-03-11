@@ -10,8 +10,8 @@ import Booking from './Booking';
 import Footer from './Footer';
 import ServicesPage from './ServicesPage';
 import ScrollToTop from './ScrollToTop';
+import Contact from './Contact';
 
-// Home component: new section order per user request
 const Home = () => (
   <>
     <Hero />
@@ -20,18 +20,29 @@ const Home = () => (
     <Testimonials />
     <ValueProps />
     <Booking />
+    <Contact />
   </>
 );
 
 function App() {
   return (
-    <div className="bg-background-light text-charcoal antialiased min-h-screen relative pb-20 md:pb-0">
+    /* FIXED: 
+       1. Added 'flex flex-col' to create a vertical stack.
+       2. Removed 'pb-20' which was creating that white gap on mobile.
+       3. 'min-h-screen' now works correctly with 'flex-grow' to push the footer down.
+    */
+    <div className="bg-background-light text-charcoal antialiased min-h-screen flex flex-col relative">
       <Navbar />
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<ServicesPage />} />
-      </Routes>
+      
+      {/* 'flex-grow' tells the main content to take up all available space, pushing Footer to bottom */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+        </Routes>
+      </main>
+
       <Footer />
     </div>
   );

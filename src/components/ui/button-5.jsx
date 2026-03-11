@@ -19,8 +19,6 @@ export const Button5 = ({
   const baseBg = isDark ? "bg-white text-charcoal" : "bg-secondary text-white";
 
   // Hover container behavior based on theme
-  // Dark: Solid flat secondary bg with charcoal text
-  // Light: White static bg with secondary text and border
   let hoverContainerBg = isDark
     ? "bg-secondary text-charcoal"
     : "bg-white text-secondary rounded-[100px] border-2 border-secondary box-border";
@@ -42,9 +40,12 @@ export const Button5 = ({
     </>
   );
 
-  const paddingClass = size === "sm" ? "px-6 py-3.5" : "p-2";
+  // 1. Set equal padding on all sides (p-3.5 or p-4 works great here)
+  const paddingClass = size === "sm" ? "p-4" : "p-2"; 
   const heightClass = size === "sm" ? "h-auto min-h-[44px]" : "h-[68px]";
-  const textSizeClass = size === "sm" ? "text-xs px-2" : "text-sm md:text-base";
+  
+  // 2. REMOVED the rogue "px-2" that was overriding our layout
+  const textSizeClass = size === "sm" ? "text-xs" : "text-sm md:text-base"; 
 
   const baseClasses = `group relative flex items-center justify-center ${paddingClass} w-full max-w-5xl mx-auto ${heightClass} border border-transparent rounded-[100px] overflow-hidden text-center ${textSizeClass} cursor-pointer shadow-2xl active:scale-[0.98] transition-all duration-300 ${baseBg}`;
 
@@ -57,7 +58,7 @@ export const Button5 = ({
   }
 
   return (
-    <button className={cn(baseClasses, className)}>
+    <button onClick={onClick} className={cn(baseClasses, className)}>
       <ButtonContent />
     </button>
   );

@@ -2,12 +2,14 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-charcoal dark:bg-slate-900 text-white/60 py-12 px-6 lg:px-20 relative overflow-hidden border-t border-white/10 dark:border-white/5">
+        <footer className="bg-charcoal dark:bg-slate-900 text-white/60 py-12 px-6 lg:px-20 relative border-t border-white/10 dark:border-white/5 w-full">
             <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                
                 {/* Left Column: Brand & Socials */}
                 <div className="flex flex-col">
-                    <div className="flex items-center gap-3 mb-6">
-                        <img src="/dark-blue-logo.png" alt="3D Massage Logo" className="h-14 w-auto brightness-0 invert" />
+                    {/* Fixed height container to establish our baseline */}
+                    <div className="h-14 flex items-end mb-6">
+                        <img src="/dark-blue-logo.png" alt="3D Massage Logo" className="h-full w-auto brightness-0 invert" />
                     </div>
                     <p className="text-white text-sm leading-relaxed mb-6 max-w-sm">
                         Massage therapy in Katy, TX, specializing in deep tissue, sports massage, lymphatic drainage, and targeted pain relief. Over 10 years of experience helping clients move and feel better.
@@ -21,61 +23,73 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Middle Column: Links (Centered) */}
-                <div className="flex flex-col md:items-center md:pt-[80px]">
-                    <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
-                        <div>
-                            <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Pages</h4>
-                            <ul className="space-y-3 text-sm font-medium">
-                                <li><a className="hover:text-primary transition-colors" href="/">Home</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services">Services</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="https://saalonso811.wixsite.com/my-site-1/book-online" target="_blank" rel="noopener noreferrer">Booking</a></li>
-                            </ul>
+                {/* Middle Column: Services */}
+                <div className="flex flex-col md:items-center">
+                    <div className="w-full md:w-auto">
+                        {/* Header container matching the logo's height and margin */}
+                        <div className="h-14 flex items-end mb-6">
+                            <h4 className="text-accent font-bold uppercase tracking-widest text-[14px] leading-none mb-1">Services</h4>
                         </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Services</h4>
-                            <ul className="space-y-3 text-sm font-medium">
+                        
+                        {/* Grid for lists placed under the single header */}
+                        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-16 w-full">
+                            {/* Services Column 1 */}
+                            <ul className="space-y-3 text-sm font-medium text-white leading-relaxed">
                                 <li><a className="hover:text-primary transition-colors" href="/services#manual-lymphatic-drainage">Manual Lymphatic Drainage</a></li>
                                 <li><a className="hover:text-primary transition-colors" href="/services#medical-massage">Medical Massage</a></li>
                                 <li><a className="hover:text-primary transition-colors" href="/services#russian-sports-massage">Russian Sports Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#trigger-point-therapy">Trigger Point Therapy</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#deep-tissue-massage">Deep Tissue Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#swedish-relaxation-massage">Swedish Relaxation Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#reflexology">Reflexology</a></li>
+                            </ul>
+
+                            {/* Services Column 2 */}
+                            <ul className="space-y-3 text-sm font-medium text-white leading-relaxed">
+                                <li><a className="hover:text-primary transition-colors" href="/services#hot-stones-massage">Hot Stones Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#prenatal-massage">Prenatal Massage</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#craniosacral-therapy">Craniosacral Therapy</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#shiatsu">Shiatsu</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#assisted-clinical-stretching">Assisted Clinical Stretching</a></li>
+                                <li><a className="hover:text-primary transition-colors" href="/services#cupping-therapy">Cupping Therapy</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 {/* Right Column: Contact Info */}
-                <div className="flex flex-col md:items-end md:text-right md:pt-[80px]">
-                    <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-xs">Contact Information</h4>
-                    <ul className="space-y-4 text-sm font-medium">
+                <div className="flex flex-col md:items-end md:text-right">
+                    {/* Header container matching the logo's height and margin */}
+                    <div className="h-14 flex items-end mb-6">
+                        <h4 className="text-accent font-bold uppercase tracking-widest text-[14px] leading-none mb-1">Contact Information</h4>
+                    </div>
+                    
+                    <ul className="space-y-4 text-sm font-medium text-white leading-relaxed">
                         <li className="flex items-start gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">location_on</span>
                             <div>
-                                <span className="block mb-1 text-white font-bold">Mason Road Studio:</span>
-                                <span>2039 N. Mason RD Suite 602<br />Katy, TX 77449</span>
+                                <span className="block mb-1 text-white font-bold">Mason Road Studio</span>
+                                <span>2039 North Mason Road Suite 602<br />Katy, TX 77449</span>
                             </div>
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">call</span>
-                            <span>(346) 218-9704</span>
+                            <a href="tel:346-218-9704" className="hover:text-white transition-colors">(346) 218-9704</a>
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">mail</span>
-                            <span>max@3dmassagekaty.com</span>
+                            <a href="mailto:max@3dmassagekaty.com" className="hover:text-white transition-colors">max@3dmassagekaty.com</a>
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">schedule</span>
-                            <span>Mon-Sun: 9:00 AM - 9:00 PM</span>
+                            <span>Mon-Sun 9:00 AM - 9:00 PM</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div className="max-w-[1440px] mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs relative z-10">
+            <div className="max-w-[1440px] mx-auto mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs relative z-10 text-white/60">
                 <p>© 2026 3D Massage. All Rights Reserved.</p>
-                <div className="flex gap-6 mt-4 md:mt-0 font-medium">
-                    <a className="hover:text-white" href="#">Privacy Policy</a>
-                    <a className="hover:text-white" href="#">Patient Consent</a>
-                </div>
             </div>
         </footer>
     );
