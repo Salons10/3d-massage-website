@@ -154,8 +154,8 @@ const Contact = () => {
 
                         <button
                             type="submit"
-                            disabled={isSubmitting}
-                            className={`mt-2 bg-primary hover:bg-primary-mid text-white font-bold tracking-[0.15em] uppercase text-sm py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl self-start w-full sm:w-auto ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                            disabled={isSubmitting || (recaptchaEnabled && !recaptchaToken)}
+                            className={`mt-2 bg-primary text-white font-bold tracking-[0.15em] uppercase text-sm py-4 px-8 rounded-full transition-all duration-300 shadow-lg self-start w-full sm:w-auto ${isSubmitting || (recaptchaEnabled && !recaptchaToken) ? 'opacity-40 cursor-not-allowed' : 'hover:bg-primary-mid hover:shadow-xl'}`}
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
