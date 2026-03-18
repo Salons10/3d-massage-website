@@ -77,7 +77,7 @@ const ServicesPage = () => {
             description: "Safe, supportive massage designed for expecting mothers to help relieve pregnancy-related aches and pains, reduce swelling, and prepare your body for labor.",
             purpose: "To reduce aches and pains in muscles and joints during pregnancy and to improve labor outcomes.",
             procedure: "Gliding strokes, kneading, and friction while client is in supportive supine and side-lying positions.",
-            imageUrl: "/prenatal_male_new.png"
+            imageUrl: "/prenatal_massage_v5.png"
         },
         {
             id: 9,
@@ -128,9 +128,22 @@ const ServicesPage = () => {
                     <h1 className="text-4xl lg:text-6xl font-extrabold text-charcoal dark:text-white mb-6">
                         Massage <span className="text-secondary">Services</span>
                     </h1>
-                    <p className="text-lg text-charcoal/70 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg text-charcoal/70 max-w-2xl mx-auto leading-relaxed mb-8">
                         From chronic pain and post-surgery recovery to sports performance, we offer hands-on therapies that deliver real, lasting results. Select any service below to learn more.
                     </p>
+
+                    {/* Booking Disclaimer */}
+                    <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800/80 rounded-2xl p-5 shadow-sm border border-charcoal/5 dark:border-white/5 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-4 text-left">
+                        <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-1 sm:mt-0">
+                            <span className="material-symbols-outlined text-accent">schedule</span>
+                        </div>
+                        <div className="flex-1 text-center sm:text-left">
+                            <h3 className="text-charcoal dark:text-white font-bold mb-1 text-sm uppercase tracking-wide">Booking Notice</h3>
+                            <p className="text-sm text-charcoal/70 dark:text-slate-300 leading-relaxed">
+                                Online bookings require at least <span className="font-bold text-charcoal dark:text-white">24 hours' </span>notice. The latest available time slot is <span className="font-bold text-charcoal dark:text-white">8:00 PM</span> (1-hour massage only). For same-day or last-minute appointments, text Max directly at <a href="tel:346-218-9704" className="text-accent hover:underline font-bold">(346) 218-9704</a>.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Services Grid */}

@@ -14,13 +14,13 @@ const Therapist = () => {
 
                     <div className="w-full lg:w-7/12">
                         <span className="text-accent font-bold tracking-widest text-xs uppercase mb-4 block">
-                            Your Massage Therapist
+                            Medical Massage Practitioner
                         </span>
                         <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-charcoal dark:text-white">
                             Real Results. Real Relief. Meet Max.
                         </h2>
                         <p className="text-lg text-charcoal/80 dark:text-slate-300 mb-6 leading-relaxed font-medium">
-                            With over 10 years of hands-on experience, Max is a licensed massage therapist in Katy, TX who goes beyond surface-level relaxation. He finds the root cause of your pain, not just where it hurts but why it hurts, and builds a clinical plan to fix it.
+                            With over 10 years of hands-on experience, Max is a Medical Massage Practitioner and instructor in Katy, TX who goes beyond surface-level relaxation. He finds the root cause of your pain, not just where it hurts but why it hurts, and builds a clinical plan to fix it.
                         </p>
                         <p className="text-lg text-charcoal/80 dark:text-slate-300 mb-10 leading-relaxed font-medium">
                             Using targeted deep tissue work, trigger point therapy, and fascial release techniques, Max creates custom treatment plans that reduce chronic pain, speed up recovery after surgery, and help your body move the way it should.
