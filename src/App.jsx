@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 import Hero from './Hero';
@@ -44,6 +45,7 @@ function App() {
       </main>
 
       <Footer />
+      <Analytics />
     </div>
   );
 }
