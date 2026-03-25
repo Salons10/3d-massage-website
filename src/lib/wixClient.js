@@ -24,4 +24,4 @@ export const WIX_COLLECTIONS = {
 //  It will look like: https://yourdomain.com/booking-calendar
 //  or: https://username.wixsite.com/sitename/booking-calendar
 // ──────────────────────────────────────────
-export const WIX_BOOKING_URL = 'https://saalonso811.wixsite.com/my-site-1/book-online';
+export const WIX_BOOKING_URL = 'https://booking.3dmassagekaty.com';
