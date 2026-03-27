@@ -8,8 +8,7 @@ const Hero = () => {
         <section className="relative w-full min-h-[100vh] flex items-end justify-center pt-32 pb-32 overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <div
-                    className="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-1000 scale-105"
-                    style={{ backgroundImage: "url('/New_Hero_image.png')" }}
+                    className="w-full h-full bg-center bg-cover bg-no-repeat transition-transform duration-1000 scale-105 bg-[url('/hero-mobile.webp')] md:bg-[url('/hero-desktop.webp')]"
                 ></div>
                 <div className="absolute inset-0 bg-black/30"></div>
             </div>
