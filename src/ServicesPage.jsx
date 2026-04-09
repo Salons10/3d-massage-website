@@ -12,7 +12,7 @@ const ServicesPage = () => {
             name: "Manual Lymphatic Drainage",
             description: "Gentle, light-touch therapy that helps reduce swelling after surgery, supports your immune system, and speeds up recovery by guiding fluid back to where it needs to go.",
             purpose: "To reduce swelling by moving lymphatic fluid away from tissues and toward lymph nodes for reabsorption.",
-            procedure: "Using gentle, slow, skin-stretching strokes to pump lymph toward regional nodes.",
+            procedure: "Using gentle, slow, skin-stretching techniques to guide lymph toward regional nodes.",
             imageUrl: "/mld_male_new2.png"
         },
         {
@@ -28,14 +28,14 @@ const ServicesPage = () => {
             name: "Russian Sports Massage",
             description: "Built for athletes and active people, whether you need to warm up before a game or recover after one. Improves performance and reduces injury risk.",
             purpose: "To help prepare for and recover from sports/exercise by warming up and loosening tense muscles.",
-            procedure: "Range-of-motion techniques, stretching, vigorous strokes, kneading friction, and percussion.",
+            procedure: "Range-of-motion techniques, stretching, dynamic soft-tissue applications, kneading friction, and percussion.",
             imageUrl: "/russian_sports_male_new2.png"
         },
         {
             id: 1,
             name: "Trigger Point Therapy",
             description: "Focused pressure on tight muscle knots that cause pain in other areas of the body. Great for headaches, neck pain, and limited range of motion.",
-            purpose: "To release myofascial trigger points that cause referral patterns of pain, sensitivity, weakness, numbness, and tingling.",
+            purpose: "To release myofascial trigger points that cause referral patterns of pain, tenderness, weakness, and altered sensation.",
             procedure: "Hold-and-release techniques concentrated on precise areas along bands of muscle fibers containing trigger points.",
             imageUrl: "/service_triggerpoint.png"
         },
@@ -44,7 +44,7 @@ const ServicesPage = () => {
             name: "Deep Tissue Massage",
             description: "Slow, focused pressure that reaches the deeper layers of muscle to break up tightness, relieve severe tension, and restore balance to your body.",
             purpose: "To relieve pain and stiffness in muscles, tendons, and joints by working through the deeper layers of tissue.",
-            procedure: "Slow, penetrating strokes and deep compression.",
+            procedure: "Slow, targeted movements and sustained firm pressure.",
             imageUrl: "/deep_tissue_male_new.png"
         },
         {
@@ -52,7 +52,7 @@ const ServicesPage = () => {
             name: "Swedish Relaxation Massage",
             description: "Classic full-body massage that improves circulation, melts away stress, and leaves you feeling completely relaxed and recharged.",
             purpose: "To improve blood and lymph circulation, relieve tension, and induce relaxation.",
-            procedure: "Gliding strokes, kneading, friction, and percussion.",
+            procedure: "Smooth, continuous movements, kneading, friction, and percussion.",
             imageUrl: "/swedish_male_new.png"
         },
         {
@@ -68,7 +68,7 @@ const ServicesPage = () => {
             name: "Hot Stones Massage",
             description: "Warm basalt stones placed on key areas of the body to deeply relax tight muscles, calm the nervous system, and melt away tension.",
             purpose: "To reduce severe muscular tension through gentle and smooth application of therapeutic heat.",
-            procedure: "Placing of hot stones on strategic areas (sacral region, spine, palms) and gliding hot stones over broad areas.",
+            procedure: "Placing of hot stones on strategic areas (sacral region, spine, palms) and smoothly sweeping hot stones over broad areas.",
             imageUrl: "/hot_stones_male_new.png"
         },
         {
@@ -76,7 +76,7 @@ const ServicesPage = () => {
             name: "Prenatal Massage",
             description: "Safe, supportive massage designed for expecting mothers to help relieve pregnancy-related aches and pains, reduce swelling, and prepare your body for labor.",
             purpose: "To reduce aches and pains in muscles and joints during pregnancy and to improve labor outcomes.",
-            procedure: "Gliding strokes, kneading, and friction while client is in supportive supine and side-lying positions.",
+            procedure: "Smooth, continuous movements, kneading, and friction while client is in supportive supine and side-lying positions.",
             imageUrl: "/prenatal_massage_v5.png"
         },
         {
@@ -84,7 +84,7 @@ const ServicesPage = () => {
             name: "Craniosacral Therapy",
             description: "A very gentle, hands-on technique that releases tension in the head, spine, and lower back. Great for headaches, stress, and overall nervous system relief.",
             purpose: "To gently release tension-causing compression in the bones of the skull, spine, and sacrum.",
-            procedure: "Very gentle manipulation of membranes and fluid along the craniosacral pathway while client remains fully clothed.",
+            procedure: "Subtle mobilization of tissues and balancing along the craniosacral pathway while client remains fully clothed.",
             imageUrl: "/craniosacral_male_new2.png"
         },
         {

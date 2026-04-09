@@ -6,7 +6,7 @@ const Therapist = () => {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <div className="w-full lg:w-5/12 relative z-20">
-                        <div className="aspect-[4/5] bg-center bg-cover rounded-2xl shadow-2xl relative z-10" style={{ backgroundImage: "url('/Portait.png')" }}></div>
+                        <div className="aspect-[4/5] bg-center bg-cover rounded-2xl shadow-2xl relative z-10" style={{ backgroundImage: "url('/Max-Headshot.png')" }}></div>
                         {/* Dynamic abstract medical frame */}
                         <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary/30 rounded-2xl z-0 backdrop-blur-sm"></div>
                         <div className="absolute -top-4 -left-4 w-32 h-32 border-t-4 border-l-4 border-accent rounded-tl-2xl z-20"></div>

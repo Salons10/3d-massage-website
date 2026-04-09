@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
 const recaptchaEnabled =
-  RECAPTCHA_SITE_KEY && !RECAPTCHA_SITE_KEY.startsWith('your_');
+  RECAPTCHA_SITE_KEY && typeof RECAPTCHA_SITE_KEY === "string" && !RECAPTCHA_SITE_KEY.startsWith('your_');
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
