@@ -44,8 +44,10 @@ const Contact = () => {
         }
 
         return () => {
-            // Reset so re-mounting creates a fresh widget
             recaptchaWidgetId.current = null;
+            if (recaptchaContainerRef.current) {
+                recaptchaContainerRef.current.innerHTML = '';
+            }
         };
     }, []);
 
