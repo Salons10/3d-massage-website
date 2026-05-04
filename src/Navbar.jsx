@@ -45,7 +45,7 @@ const Navbar = ({ showMothersDayBadge = false }) => {
                 <div className="flex-1 flex items-center justify-end gap-3 sm:gap-4">
                     <div className="hidden sm:block">
                         <Button5
-                            href="#"
+                            href="https://booking.3dmassagekaty.com/gift-card"
                             theme="light"
                             size="sm"
                             text="Gift Cards"
@@ -104,7 +104,9 @@ const Navbar = ({ showMothersDayBadge = false }) => {
                             Services
                         </Link>
                         <a
-                            href="#"
+                            href="https://booking.3dmassagekaty.com/gift-card"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="text-sm font-bold tracking-[0.15em] uppercase text-[#b5294e] hover:opacity-70 transition-opacity flex items-center gap-2"
                         >

@@ -103,7 +103,9 @@ export default function MothersDayBanner() {
               <CountdownBlock value={seconds} label="Sec" />
             </div>
             <a
-              href="#"
+              href="https://booking.3dmassagekaty.com/gift-card"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#213448] text-white text-xs font-bold px-5 py-2 rounded-md whitespace-nowrap hover:opacity-90 transition-opacity"
             >
               Get Gift Card
@@ -137,7 +139,7 @@ export default function MothersDayBanner() {
         </div>
         <div className="flex justify-center">
           <a
-            href="#"
+            href="https://booking.3dmassagekaty.com/gift-card"
             className="bg-[#213448] text-white text-[10px] font-bold px-8 py-1.5 rounded-md hover:opacity-90 transition-opacity"
           >
             Get Gift Card
