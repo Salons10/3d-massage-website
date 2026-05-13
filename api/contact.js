@@ -1,6 +1,6 @@
-import { Resend } from 'resend';
+import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const mailerSend = new MailerSend({ apiKey: process.env.MAILERSEND_API_KEY });
 
 async function verifyRecaptcha(token) {
   const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -133,17 +133,22 @@ export default async function handler(req, res) {
   `.trim();
 
   try {
-    await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>',
-      to: process.env.CONTACT_RECIPIENT_EMAIL,
-      reply_to: email,
-      subject: `New message from ${name} — 3D Massage Contact Form`,
-      html: htmlBody,
-    });
+    const sentFrom = new Sender('noreply@3dmassagekaty.com', '3D Massage Contact Form');
+    const recipients = [new Recipient(process.env.CONTACT_RECIPIENT_EMAIL)];
+    const replyTo = new Sender(email, name);
+
+    const emailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo(recipients)
+      .setReplyTo(replyTo)
+      .setSubject(`New message from ${name} — 3D Massage Contact Form`)
+      .setHtml(htmlBody);
+
+    await mailerSend.email.send(emailParams);
 
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Resend error:', error);
+    console.error('MailerSend error:', error);
     res.status(500).json({ message: 'Failed to send email. Please try again.' });
   }
 }
