@@ -26,7 +26,7 @@ const Enhancements = () => {
                     {/* Enhancement 2 */}
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
-                            <h4 className="font-bold text-lg text-charcoal dark:text-white">Topical Analgesics</h4>
+                            <h4 className="font-bold text-lg text-charcoal dark:text-white">Pain Relief Balm/Gel/Oil</h4>
                             <span className="text-accent font-bold">+$20</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
@@ -37,11 +37,11 @@ const Enhancements = () => {
                     {/* Enhancement 3 */}
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
-                            <h4 className="font-bold text-lg text-charcoal dark:text-white">Hot Towel Therapy</h4>
-                            <span className="text-accent font-bold">Complimentary</span>
+                            <h4 className="font-bold text-lg text-charcoal dark:text-white">Hot Stones</h4>
+                            <span className="text-accent font-bold">+$20</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
-                            Warm, damp towels placed on tight areas to improve circulation, ease tension, and help your muscles relax more deeply during treatment.
+                            Smooth, heated stones placed on key areas and glided over muscles to deeply ease tension, promote circulation, and induce relaxation.
                         </p>
                     </div>
                 </div>

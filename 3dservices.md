@@ -154,15 +154,15 @@ $20
 
 Aromatherapy uses essential oils to impact the emotional center of the brain. The essential oils are mixed with a carrier oil (organic jojoba) in order to safely reduce concentration levels and to increase absorption. Depending on the essential oils used, our aromatherapy blends can induce relaxation and reduce anxiety (lavendar, patchouli, or chill pill) or boost energy and improve mental clarity (orange, lemon, or eucalyptus mint).
 
-Pain Relief Gel/Oil
+Pain Relief Balm/Gel/Oil
 $20
 
 Our pain relief topical treatments reduce discomfort associated with muscle aches, joint pain, and skin irritation. They help reduce inflammation and promote circulation. Biofreeze gel is a cooling menthol formula, whereas Wood Lock oil and Prossage Oil have warming properties that gradually settle into a cooling effect.
 
-Hot Towel Therapy
-FREE
+Hot Stones
+$20
 
-Hot towel therapy uses damp, heated towels placed on the skin, to promote circulation and to ease tension.
+Hot stone therapy uses smooth, heated stones placed on strategic areas of the body and glided over tight muscles to melt away tension, promote circulation, and ease stress.
 
 Frequency Bonus Plan:  If you visit us more than once within 30 days, you can receive a free enhancement of your choice.
 
