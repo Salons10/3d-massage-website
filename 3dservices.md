@@ -147,7 +147,6 @@ Procedure: using suction cups on strategically placed areas to lift skin and dra
 
 
 *Enhancements
-Note: Enhancements cannot be booked online but can be requested via text, email, or in person.
 
 Aromatherapy
 $20

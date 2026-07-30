@@ -5,10 +5,7 @@ const Enhancements = () => {
         <section className="pt-8 pb-12 px-6 lg:px-20 max-w-[1440px] mx-auto">
             <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-charcoal/5">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-charcoal dark:text-white mb-4">Add-On Enhancements</h2>
-                    <p className="text-charcoal/70 dark:text-slate-300 text-sm">
-                        Note: Enhancements cannot be booked online but can be requested via text, email, or in person prior to your treatment.
-                    </p>
+                    <h2 className="text-3xl font-bold text-charcoal dark:text-white">Add-On Enhancements</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
