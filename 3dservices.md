@@ -163,6 +163,11 @@ $20
 
 Hot stone therapy uses smooth, heated stones placed on strategic areas of the body and glided over tight muscles to melt away tension, promote circulation, and ease stress.
 
+Soft Cupping
+$20
+
+Soft cupping uses gentle silicone cups glided over target areas to release tight fascia, boost circulation, and soothe muscle tension with light, therapeutic suction.
+
 Frequency Bonus Plan:  If you visit us more than once within 30 days, you can receive a free enhancement of your choice.
 
 
