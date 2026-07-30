@@ -35,23 +35,23 @@ const Footer = () => {
                         <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:gap-x-16 w-full">
                             {/* Services Column 1 */}
                             <ul className="space-y-3 text-sm font-medium text-white leading-relaxed">
-                                <li><a className="hover:text-primary transition-colors" href="/services#manual-lymphatic-drainage">Manual Lymphatic Drainage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#medical-massage">Medical Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#russian-sports-massage">Russian Sports Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#trigger-point-therapy">Trigger Point Therapy</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#deep-tissue-massage">Deep Tissue Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#swedish-relaxation-massage">Swedish Relaxation Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#reflexology">Reflexology</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#manual-lymphatic-drainage">Manual Lymphatic Drainage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#medical-massage">Medical Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#russian-sports-massage">Russian Sports Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#trigger-point-therapy">Trigger Point Therapy</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#deep-tissue-massage">Deep Tissue Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#swedish-relaxation-massage">Swedish Relaxation Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#reflexology">Reflexology</a></li>
                             </ul>
 
                             {/* Services Column 2 */}
                             <ul className="space-y-3 text-sm font-medium text-white leading-relaxed">
-                                <li><a className="hover:text-primary transition-colors" href="/services#hot-stones-massage">Hot Stones Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#prenatal-massage">Prenatal Massage</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#craniosacral-therapy">Craniosacral Therapy</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#shiatsu">Shiatsu</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#assisted-clinical-stretching">Assisted Clinical Stretching</a></li>
-                                <li><a className="hover:text-primary transition-colors" href="/services#cupping-therapy">Cupping Therapy</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#hot-stones-massage">Hot Stones Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#prenatal-massage">Prenatal Massage</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#craniosacral-therapy">Craniosacral Therapy</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#shiatsu">Shiatsu</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#assisted-clinical-stretching">Assisted Clinical Stretching</a></li>
+                                <li><a className="hover:text-accent transition-colors" href="/services#cupping-therapy">Cupping Therapy</a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,11 +74,11 @@ const Footer = () => {
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">call</span>
-                            <a href="tel:346-218-9704" className="hover:text-white transition-colors">(346) 218-9704</a>
+                            <a href="tel:346-218-9704" className="hover:text-accent transition-colors">(346) 218-9704</a>
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">mail</span>
-                            <a href="mailto:max@3dmassagekaty.com" className="hover:text-white transition-colors">max@3dmassagekaty.com</a>
+                            <a href="mailto:max@3dmassagekaty.com" className="hover:text-accent transition-colors">max@3dmassagekaty.com</a>
                         </li>
                         <li className="flex items-center gap-3 md:flex-row-reverse">
                             <span className="material-symbols-outlined text-accent">schedule</span>
