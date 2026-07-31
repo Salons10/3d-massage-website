@@ -46,7 +46,7 @@ const Enhancements = () => {
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
                             <h4 className="font-bold text-lg text-charcoal dark:text-white">Soft Cupping</h4>
-                            <span className="text-accent font-bold">+$20</span>
+                            <span className="text-accent font-bold">+$30</span>
                         </div>
                         <p className="text-sm text-charcoal/70 dark:text-slate-400 leading-relaxed">
                             Gentle silicone cups glided over target areas to release tight fascia, boost circulation, and soothe muscle tension with light, therapeutic suction.
