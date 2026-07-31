@@ -168,8 +168,6 @@ $30
 
 Soft cupping uses gentle silicone cups glided over target areas to release tight fascia, boost circulation, and soothe muscle tension with light, therapeutic suction.
 
-Frequency Bonus Plan:  If you visit us more than once within 30 days, you can receive a free enhancement of your choice.
-
 
 CONTACT INFO:
 

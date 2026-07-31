@@ -8,7 +8,7 @@ const Enhancements = () => {
                     <h2 className="text-3xl font-bold text-charcoal dark:text-white">Add-On Enhancements</h2>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Enhancement 1 */}
                     <div className="space-y-3">
                         <div className="flex justify-between items-center border-b border-charcoal/10 dark:border-white/10 pb-2">
@@ -52,12 +52,6 @@ const Enhancements = () => {
                             Gentle silicone cups glided over target areas to release tight fascia, boost circulation, and soothe muscle tension with light, therapeutic suction.
                         </p>
                     </div>
-                </div>
-
-                <div className="bg-primary rounded-lg p-6 text-center shadow-md">
-                    <p className="text-white font-medium">
-                        <strong className="text-white font-bold">Frequency Bonus Plan:</strong> Visit us more than once within 30 days and get a free enhancement of your choice.
-                    </p>
                 </div>
             </div>
         </section>
