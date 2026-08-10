@@ -4,7 +4,7 @@ import { Button5 } from './components/ui/button-5';
 import { motion, AnimatePresence } from 'framer-motion';
 import { WIX_BOOKING_URL } from './lib/wixClient';
 
-const Navbar = ({ showMothersDayBadge = false }) => {
+const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
@@ -21,7 +21,7 @@ const Navbar = ({ showMothersDayBadge = false }) => {
     }, []);
 
     return (
-        <nav style={{ top: 'var(--banner-h, 0px)' }} className={`fixed z-50 w-full transition-all duration-300 ${!isTransparent ? 'bg-background-light/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+        <nav style={{ top: 'var(--banner-h, 0px)' }} className={`fixed z-50 w-full transition-[background-color,padding,box-shadow] duration-300 ${!isTransparent ? 'bg-background-light/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
             <div className="max-w-[1440px] mx-auto px-6 lg:px-20 flex items-center justify-between">
 
                 {/* Logo Section */}
@@ -108,14 +108,9 @@ const Navbar = ({ showMothersDayBadge = false }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="text-sm font-bold tracking-[0.15em] uppercase text-[#b5294e] hover:opacity-70 transition-opacity flex items-center gap-2"
+                            className="text-sm font-bold tracking-[0.15em] uppercase text-charcoal hover:text-primary transition-colors"
                         >
                             Gift Cards
-                            {showMothersDayBadge && (
-                                <span className="text-[10px] bg-[#fce4ec] text-[#b5294e] px-2 py-0.5 rounded-full font-normal tracking-normal normal-case">
-                                    Mother's Day
-                                </span>
-                            )}
                         </a>
                         <div className="w-full px-6 pt-4 border-t border-charcoal/5 flex justify-center sm:hidden">
                             <Button5 href={WIX_BOOKING_URL} onClick={() => setIsMobileMenuOpen(false)} theme="light" size="default" text="Book Now" className="w-full max-w-[200px]" />
