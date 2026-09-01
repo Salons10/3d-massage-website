@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import FreeUpgradeBanner, { SHOW_UPGRADE_BANNER } from './components/FreeUpgradeBanner';
+import PromoBanner, { SHOW_PROMO_BANNER } from './components/PromoBanner';
 import Hero from './Hero';
 import Services from './Services';
 import Therapist from './Therapist';
@@ -35,7 +35,7 @@ function App() {
        3. 'min-h-screen' now works correctly with 'flex-grow' to push the footer down.
     */
     <div className="bg-background-light text-charcoal antialiased min-h-screen flex flex-col relative">
-      {SHOW_UPGRADE_BANNER && <FreeUpgradeBanner />}
+      {SHOW_PROMO_BANNER && <PromoBanner />}
       <Navbar />
       <ScrollToTop />
       
